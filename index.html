@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SafeTap | Smart QR &amp; NFC experiences for local businesses</title>
+<meta name="description" content="SafeTap helps cafés, restaurants, bakeries and dessert shops connect with customers through QR and NFC menus, Google review stands, and mobile-first business websites.">
+<meta name="theme-color" content="#0c0d0e">
+<meta name="color-scheme" content="dark">
+<!-- After deploying, set your real domain here and in og:url / og:image -->
+<link rel="canonical" href="https://your-domain.com/">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SafeTap">
+<meta property="og:title" content="SafeTap | Turn every tap into an opportunity">
+<meta property="og:description" content="Smart QR and NFC menus, Google review stands and business websites for modern hospitality businesses.">
+<meta property="og:url" content="https://your-domain.com/">
+<!-- <meta property="og:image" content="https://your-domain.com/og-image.png"> -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SafeTap | Turn every tap into an opportunity">
+<meta name="twitter:description" content="Smart QR and NFC experiences for modern businesses.">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"SafeTap","email":"safetap2026@gmail.com","telephone":["+919789971911","+919345272283"],"address":{"@type":"PostalAddress","addressLocality":"Chennai","addressRegion":"Tamil Nadu","addressCountry":"IN"},"description":"QR and NFC menus, Google review stands and business websites for hospitality businesses."}
+</script>
+
+<!-- Favicon (inline SVG, no extra file needed) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 28 6.5V15c0 7.5-5.2 12.6-12 15C9.2 27.6 4 22.5 4 15V6.5z' fill='%230c0d0e' stroke='%23c8ff3e' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M12.2 16.2a5.4 5.4 0 0 1 7.6 0M9.4 13.4a9.4 9.4 0 0 1 13.2 0' fill='none' stroke='%23c8ff3e' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='20' r='1.9' fill='%23c8ff3e'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. DESIGN TOKENS — edit these to re-brand the whole page
+   ========================================================= */
+:root{
+  --bg:#0c0d0e;
+  --bg-2:#131516;
+  --surface:rgba(255,255,255,.04);
+  --surface-2:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.18);
+  --text:#f3f5f0;
+  --muted:#9ba19b;
+  --lime:#c8ff3e;
+  --lime-deep:#8fdc00;
+  --lime-glow:rgba(200,255,62,.35);
+  --ink:#0a1200;               /* text on lime */
+
+  --font-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --font-body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+
+  /* spacing scale */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s5:1.5rem;
+  --s6:2rem; --s7:3rem; --s8:4.5rem; --s9:7rem;
+
+  --radius-s:10px; --radius-m:18px; --radius-l:28px;
+  --nav-h:72px;
+  --container:1200px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.05;letter-spacing:-.03em;margin:0}
+p{margin:0}
+ul{list-style:none;margin:0;padding:0}
+section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
+.container{width:min(100% - 2.5rem,var(--container));margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lime{color:var(--lime)}
+
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+
+.skip-link{position:absolute;left:1rem;top:-4rem;background:var(--lime);color:var(--ink);padding:.6rem 1rem;border-radius:var(--radius-s);font-weight:600;z-index:200;transition:top .2s}
+.skip-link:focus{top:1rem}
+
+/* background grid + particles (transform-only animation for performance) */
+.bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg-fx::before{
+  content:"";position:absolute;inset:-64px;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.35;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%);
+          mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%);
+  animation:grid-drift 14s linear infinite;
+}
+.bg-fx .dot{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--lime);opacity:0;animation:dot-rise linear infinite}
+@keyframes grid-drift{to{transform:translateY(64px)}}
+@keyframes dot-rise{0%{opacity:0;transform:translateY(0)}15%{opacity:.7}100%{opacity:0;transform:translateY(-120px)}}
+
+/* =========================================================
+   3. BUTTONS
+   ========================================================= */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.9rem 1.5rem;border-radius:999px;border:1px solid transparent;
+  font-weight:600;font-size:1rem;line-height:1;white-space:nowrap;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,border-color .25s,color .25s;
+}
+.btn:active{transform:scale(.96)}
+.btn-primary{background:var(--lime);color:var(--ink);box-shadow:0 0 0 0 var(--lime-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 36px -6px var(--lime-glow)}
+.btn-ghost{background:var(--surface);border-color:var(--line-strong);color:var(--text);backdrop-filter:blur(8px)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--lime);color:var(--lime)}
+.btn-dark{background:var(--bg);color:var(--text)}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(0,0,0,.6)}
+.btn-outline-dark{background:transparent;border-color:rgba(10,18,0,.45);color:var(--ink)}
+.btn-outline-dark:hover{transform:translateY(-2px);background:rgba(10,18,0,.08);border-color:var(--ink)}
+.btn .arrow{transition:transform .25s var(--ease)}
+.btn:hover .arrow{transform:translate(3px,-3px)}
+.btn-sm{padding:.65rem 1.1rem;font-size:.95rem}
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+.nav{
+  position:sticky;top:0;z-index:100;height:var(--nav-h);
+  display:flex;align-items:center;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .35s,backdrop-filter .35s,border-color .35s;
+}
+.nav.scrolled{background:rgba(10,11,12,.78);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s5)}
+.logo{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.03em}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;align-items:center;gap:var(--s6)}
+.nav-links a:not(.btn){color:var(--muted);font-size:.98rem;font-weight:500;position:relative;padding:.25rem 0;transition:color .2s}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--text)}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--text);border-radius:2px;transition:transform .35s var(--ease),opacity .2s,top .35s var(--ease)}
+.burger span:nth-child(1){top:15px}
+.burger span:nth-child(2){top:21px}
+.burger span:nth-child(3){top:27px}
+.burger[aria-expanded="true"] span:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){top:21px;transform:rotate(-45deg)}
+
+@media (max-width:860px){
+  .burger{display:block}
+  .nav-links{
+    position:fixed;left:0;right:0;top:var(--nav-h);
+    flex-direction:column;align-items:stretch;gap:0;padding:var(--s4) 1.25rem var(--s6);
+    background:rgba(10,11,12,.96);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+    clip-path:inset(0 0 100% 0);visibility:hidden;opacity:0;
+    transition:clip-path .45s var(--ease),opacity .3s,visibility 0s .45s;
+  }
+  .nav-links.open{clip-path:inset(0 0 0 0);visibility:visible;opacity:1;transition:clip-path .45s var(--ease),opacity .3s,visibility 0s}
+  .nav-links a:not(.btn){padding:1rem 0;font-size:1.2rem;border-bottom:1px solid var(--line);color:var(--text)}
+  .nav-links a:not(.btn)::after{display:none}
+  .nav-links .btn{margin-top:var(--s5)}
+}
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+.hero{position:relative;min-height:calc(100svh - var(--nav-h));display:flex;align-items:center;padding:var(--s7) 0 var(--s8)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s6);align-items:center}
+.hero h1{font-size:clamp(2.9rem,7.2vw,6rem);font-weight:800;letter-spacing:-.045em;line-height:.98}
+.hero-sub{margin-top:var(--s5);max-width:34em;font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+.hero-tags{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);margin-top:var(--s7);color:var(--muted);font-size:.95rem}
+.hero-tags li{display:flex;align-items:center;gap:.55rem}
+.hero-tags li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+
+/* hero entrance: one orchestrated moment */
+.js .hero-copy>*{opacity:0;transform:translateY(22px);animation:rise .9s var(--ease) forwards}
+.js .hero-copy>*:nth-child(2){animation-delay:.12s}
+.js .hero-copy>*:nth-child(3){animation-delay:.24s}
+.js .hero-copy>*:nth-child(4){animation-delay:.36s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* --- hero scene: sizes in em so it scales with one font-size.
+   ONE 12s timeline drives everything:
+   idle -> phone taps the SafeTap logo tag -> phone scans the QR code -> idle --- */
+.scene{--t:12s;position:relative;width:35em;height:35em;max-width:100%;margin-inline:auto;font-size:16px}
+.scene.off *{animation-play-state:paused}
+.scene .glow{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none}
+.scene .glow.a{width:22em;height:22em;left:6em;top:7em;background:radial-gradient(circle,rgba(200,255,62,.28),transparent 65%);animation:pulse-glow 6s ease-in-out infinite}
+.scene .glow.b{width:12em;height:12em;right:0;top:0;background:radial-gradient(circle,rgba(200,255,62,.20),transparent 65%)}
+@keyframes pulse-glow{50%{transform:scale(1.12);opacity:.8}}
+
+/* caption pill: says what is happening right now */
+.cap{position:absolute;left:0;top:1.2em;display:grid;font-size:.85em;font-weight:600}
+.cap span{grid-area:1/1;align-self:start;justify-self:start;display:flex;align-items:center;gap:.6em;padding:.55em 1em;border-radius:99px;background:rgba(22,24,25,.8);border:1px solid var(--line-strong);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);white-space:nowrap;opacity:0}
+.cap span::before{content:"";width:.6em;height:.6em;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.cap span:nth-child(1){opacity:1;animation:cap1 var(--t) infinite}
+.cap span:nth-child(2){animation:cap2 var(--t) infinite}
+.cap span:nth-child(3){animation:cap3 var(--t) infinite}
+@keyframes cap1{0%,15%{opacity:1}19%,92%{opacity:0}96%,100%{opacity:1}}
+@keyframes cap2{0%,17%{opacity:0}21%,44%{opacity:1}48%,100%{opacity:0}}
+@keyframes cap3{0%,50%{opacity:0}54%,86%{opacity:1}90%,100%{opacity:0}}
+
+/* --- the logo tag the phone taps --- */
+.tag{
+  position:absolute;left:0;top:19em;width:10.5em;height:11em;border-radius:1.5em;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7em;
+  background:linear-gradient(155deg,rgba(255,255,255,.14),rgba(255,255,255,.03));
+  border:1px solid var(--line-strong);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.8);animation:tag-flash var(--t) infinite;
+}
+.tag .logo-big{position:relative;z-index:1;width:4.4em;height:4.4em}
+.tag p{position:relative;z-index:1;text-align:center;font:700 .95em/1.2 var(--font-display);letter-spacing:-.02em}
+.tag p small{display:block;margin-top:.2em;font:500 .75em var(--font-body);color:var(--muted);letter-spacing:0}
+.tag .ring{position:absolute;left:50%;top:50%;width:4em;height:4em;margin:-2em;border-radius:50%;border:2px solid var(--lime);opacity:0;animation:ring-burst var(--t) ease-out infinite}
+.tag .ring.r2{animation-delay:.35s}
+.tag .ring.r3{animation-delay:.7s}
+@keyframes ring-burst{0%,21%{transform:scale(1);opacity:0}22%{opacity:.85}42%{transform:scale(4.6);opacity:0}100%{transform:scale(4.6);opacity:0}}
+@keyframes tag-flash{
+  0%,21%{border-color:var(--line-strong);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 0 rgba(200,255,62,0)}
+  24%,40%{border-color:var(--lime);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 56px -4px var(--lime-glow)}
+  47%,100%{border-color:var(--line-strong);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 0 rgba(200,255,62,0)}
+}
+
+/* --- the QR card the phone scans --- */
+.qr-card{position:absolute;right:1.2em;top:.6em;width:8em;padding:.8em;border-radius:1.2em;background:#f3f5f0;color:#0c0d0e;transform:rotate(5deg);box-shadow:0 24px 50px -16px rgba(0,0,0,.8),0 0 50px -14px var(--lime-glow)}
+.qr-wrap{position:relative}
+.qr-wrap svg{width:100%;height:auto;aspect-ratio:1}
+.qr-card>span{display:block;margin-top:.5em;text-align:center;font:700 .66em var(--font-display)}
+.qr-scan,.vf-scan{position:absolute;left:0;right:0;top:0;height:3px;background:var(--lime);box-shadow:0 0 14px 3px var(--lime-glow);opacity:0;animation:scan-sweep var(--t) linear infinite}
+.qr-lock{position:absolute;inset:-.45em;border:3px solid var(--lime);border-radius:.8em;opacity:0;animation:qr-lock var(--t) ease-out infinite}
+@keyframes scan-sweep{
+  0%,54%{top:0;opacity:0}
+  55%{top:0;opacity:1}
+  60%{top:calc(100% - 3px);opacity:1}
+  60.5%{top:0;opacity:1}
+  66%{top:calc(100% - 3px);opacity:1}
+  67%,100%{top:calc(100% - 3px);opacity:0}
+}
+@keyframes qr-lock{0%,55%{opacity:0;transform:scale(1.12)}58%{opacity:1;transform:scale(1)}70%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
+
+/* --- the phone: travels tag -> QR -> home --- */
+.phone{
+  position:absolute;left:0;top:0;width:10.5em;height:21em;border-radius:2.2em;padding:.5em;
+  background:linear-gradient(160deg,#2a2d2e,#101213);border:1px solid var(--line-strong);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.8),0 0 70px -20px var(--lime-glow);
+  transform:translate(13em,9em) rotate(-5deg);animation:phone-path var(--t) infinite;
+}
+@keyframes phone-path{
+  0%,6%{transform:translate(13em,9em) rotate(-5deg) scale(1)}
+  20%{transform:translate(7.6em,9.6em) rotate(-9deg) scale(1)}
+  23%{transform:translate(7em,9.6em) rotate(-9deg) scale(.96)}
+  26%,42%{transform:translate(7.6em,9.6em) rotate(-9deg) scale(1)}
+  54%,86%{transform:translate(15.5em,6em) rotate(4deg) scale(1)}
+  96%,100%{transform:translate(13em,9em) rotate(-5deg) scale(1)}
+}
+.screen{position:relative;height:100%;border-radius:1.75em;background:#101213;overflow:hidden}
+.screen::before{content:"";position:absolute;top:.5em;left:50%;transform:translateX(-50%);width:3.6em;height:1em;background:#000;border-radius:1em;z-index:2}
+.layer{position:absolute;inset:0;padding:1.9em .8em .8em;display:flex;flex-direction:column;gap:.55em;opacity:0}
+/* base state (also used for reduced motion): show the menu */
+.l-menu{opacity:1}
+.l-idle{animation:l-idle var(--t) ease-in-out infinite}
+.l-review{animation:l-review var(--t) ease-in-out infinite}
+.l-cam{animation:l-cam var(--t) ease-in-out infinite}
+.l-menu{animation:l-menu var(--t) ease-in-out infinite}
+@keyframes l-idle{0%,8%{opacity:1}14%,92%{opacity:0}98%,100%{opacity:1}}
+@keyframes l-review{0%,16%{opacity:0}22%,42%{opacity:1}48%,100%{opacity:0}}
+@keyframes l-cam{0%,48%{opacity:0}53%,68%{opacity:1}71%,100%{opacity:0}}
+@keyframes l-menu{0%,69%{opacity:0}73%,88%{opacity:1}94%,100%{opacity:0}}
+
+.l-idle{justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle at 50% 18%,#25360c,#101213 70%)}
+.l-idle .clock{font:800 2.5em/1 var(--font-display);letter-spacing:-.04em}
+.l-idle p{font-size:.72em;color:var(--muted);max-width:11em}
+
+.l-review{justify-content:center;align-items:center;text-align:center}
+.l-review .r-logo{width:3.6em;height:3.6em;border-radius:1.1em;font-size:1em}
+.l-review h5{margin:0;font:800 1.15em var(--font-display);letter-spacing:-.02em}
+.l-review p{font-size:.72em;color:var(--muted)}
+.l-review .stars{display:flex;gap:.25em;color:rgba(255,255,255,.22)}
+.l-review .stars svg{width:1.5em;height:1.5em}
+.l-review .m-bar{width:100%;margin-top:.4em}
+
+.l-cam{background:#08090a;justify-content:center;align-items:center;text-align:center}
+.vf{position:relative;width:7.4em;height:7.4em}
+.vf svg{width:100%;height:100%;border-radius:.4em}
+.vf b{position:absolute;width:1.4em;height:1.4em;border:3px solid rgba(255,255,255,.8);animation:vf-lock var(--t) ease-out infinite}
+.vf b:nth-of-type(1){left:-.55em;top:-.55em;border-right:0;border-bottom:0;border-radius:.5em 0 0 0}
+.vf b:nth-of-type(2){right:-.55em;top:-.55em;border-left:0;border-bottom:0;border-radius:0 .5em 0 0}
+.vf b:nth-of-type(3){left:-.55em;bottom:-.55em;border-right:0;border-top:0;border-radius:0 0 0 .5em}
+.vf b:nth-of-type(4){right:-.55em;bottom:-.55em;border-left:0;border-top:0;border-radius:0 0 .5em 0}
+@keyframes vf-lock{0%,64%{border-color:rgba(255,255,255,.8)}66%,70%{border-color:var(--lime)}71%,100%{border-color:rgba(255,255,255,.8)}}
+.l-cam p{margin-top:1.4em;font-size:.72em;color:var(--muted)}
+
+.m-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-display);font-weight:700;font-size:1em;letter-spacing:-.02em}
+.m-chip{font:600 .62em var(--font-body);padding:.3em .7em;border-radius:99px;background:rgba(200,255,62,.14);color:var(--lime)}
+.m-cats{display:flex;gap:.4em;font-size:.64em;color:var(--muted)}
+.m-cats span{padding:.35em .8em;border-radius:99px;border:1px solid var(--line)}
+.m-cats span:first-child{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:600}
+.m-item{display:flex;align-items:center;gap:.6em;padding:.5em;border-radius:1em;background:var(--surface);border:1px solid var(--line)}
+.m-thumb{flex:none;width:2.3em;height:2.3em;border-radius:.7em}
+.t1{background:radial-gradient(circle at 30% 30%,#e8c79a,#8a5a2b)}
+.t2{background:radial-gradient(circle at 30% 30%,#ffd9a0,#c46a1c)}
+.t3{background:radial-gradient(circle at 30% 30%,#f7b6c8,#b13a63)}
+.m-item b{display:block;font-size:.74em;line-height:1.2}
+.m-item small{font-size:.6em;color:var(--muted)}
+.m-item em{margin-left:auto;font-style:normal;font-weight:600;font-size:.72em;color:var(--lime)}
+.m-bar{margin-top:auto;text-align:center;font-size:.7em;font-weight:600;background:var(--lime);color:var(--ink);padding:.8em;border-radius:1em}
+
+/* --- pop-up notifications, timed to the moment they happen --- */
+.notif{
+  position:absolute;display:flex;align-items:center;gap:.7em;padding:.7em 1em .7em .75em;border-radius:1em;
+  background:rgba(22,24,25,.9);border:1px solid var(--line-strong);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  font-size:.82em;font-weight:600;white-space:nowrap;box-shadow:0 18px 40px -14px rgba(0,0,0,.8);
+}
+.notif i{flex:none;width:1.9em;height:1.9em;border-radius:.6em;background:rgba(200,255,62,.16);color:var(--lime);display:grid;place-items:center;font-style:normal}
+.notif i svg{width:1.1em;height:1.1em}
+.notif small{display:block;font-weight:400;color:var(--muted);font-size:.8em}
+.n2{left:0;top:14.2em;animation:pop-tap var(--t) infinite}
+.n1{right:0;top:13em;animation:pop-scan var(--t) infinite}
+@keyframes pop-tap{0%,28%{opacity:0;transform:translateY(.8em) scale(.92)}32%,44%{opacity:1;transform:none}48%,100%{opacity:0;transform:translateY(-.6em)}}
+@keyframes pop-scan{0%,70%{opacity:0;transform:translateY(.8em) scale(.92)}74%,88%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(-.6em)}}
+
+@media (max-width:980px){
+  .hero{min-height:auto;padding-top:var(--s5)}
+  .hero-grid{grid-template-columns:1fr;gap:var(--s6)}
+  .scene{font-size:14px}
+}
+@media (max-width:520px){ .scene{font-size:10.4px} .hero-cta .btn{flex:1 1 100%} }
+
+/* =========================================================
+   6. SECTIONS (shared)
+   ========================================================= */
+.section{padding:var(--s9) 0}
+.section-head{max-width:46rem;margin-bottom:var(--s7)}
+.section-head h2{font-size:clamp(2.2rem,5vw,3.9rem);font-weight:800}
+.section-head p{margin-top:var(--s4);color:var(--muted);font-size:1.15rem;max-width:36em}
+
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   7. SOLUTION CARDS
+   ========================================================= */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.card{
+  --mx:50%;--my:0%;
+  position:relative;display:flex;flex-direction:column;padding:var(--s6);border-radius:var(--radius-l);
+  background:
+    radial-gradient(420px circle at var(--mx) var(--my),rgba(200,255,62,.10),transparent 60%),
+    linear-gradient(180deg,var(--surface-2),var(--surface));
+  border:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.9);
+  transition:transform .5s var(--ease),border-color .4s,box-shadow .5s;
+}
+.card::before{ /* glowing border */
+  content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,var(--lime),transparent 45%,transparent 60%,var(--lime-deep));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+          mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  opacity:0;transition:opacity .4s;
+}
+.card:hover::before,.card:focus-within::before{opacity:1}
+.card:hover{box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 60px -24px var(--lime-glow)}
+.card-vis{height:150px;margin-bottom:var(--s5);border-radius:var(--radius-m);background:rgba(0,0,0,.35);border:1px solid var(--line);position:relative;overflow:hidden;display:grid;place-items:center}
+.card h3{font-size:1.65rem;font-weight:700;margin-bottom:var(--s3)}
+.card>p{color:var(--muted);margin-bottom:var(--s5)}
+.card ul{display:grid;gap:.6rem;margin-bottom:var(--s6)}
+.card li{display:flex;gap:.65rem;align-items:flex-start;font-size:.98rem}
+.card li svg{flex:none;width:18px;height:18px;margin-top:.22rem;color:var(--lime)}
+.card-link{margin-top:auto;display:inline-flex;gap:.5rem;align-items:center;font-weight:600;color:var(--lime)}
+.card-link span{transition:transform .3s var(--ease)}
+.card-link:hover span{transform:translateX(5px)}
+
+/* card visuals loop on their own (works on touch screens too); hover only adds lift + glow */
+.c1:hover{transform:translateY(-8px) rotateX(3deg)}
+.c2:hover{transform:translateY(-8px) rotate(-1deg)}
+.c3:hover{transform:translateY(-8px) rotate(1deg)}
+
+/* card 1: a QR is scanned, then the menu builds */
+.c1 .card-vis{display:flex;gap:22px;justify-content:center;align-items:center}
+.mq{position:relative;width:84px;height:84px;border-radius:8px;overflow:hidden}
+.mq svg{width:100%;height:100%}
+.scan{position:absolute;left:0;right:0;top:0;height:2px;background:var(--lime);box-shadow:0 0 14px 3px var(--lime-glow);opacity:0;animation:scan-card 3.2s ease-in-out infinite}
+@keyframes scan-card{0%{top:0;opacity:0}8%{opacity:1}45%{top:calc(100% - 2px);opacity:1}55%,100%{top:calc(100% - 2px);opacity:0}}
+.mini-menu{width:84px;display:grid;gap:8px}
+.mini-menu i{display:block;height:10px;border-radius:6px;background:rgba(255,255,255,.16);transform-origin:left;animation:bar-in 3.2s var(--ease) infinite}
+.mini-menu i:nth-child(1){animation-delay:.0s;width:100%}
+.mini-menu i:nth-child(2){animation-delay:.12s;width:72%}
+.mini-menu i:nth-child(3){animation-delay:.24s;width:90%;background:rgba(200,255,62,.55)}
+.mini-menu i:nth-child(4){animation-delay:.36s;width:60%}
+@keyframes bar-in{0%,50%{transform:scaleX(0)}62%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+
+/* card 2: tap, then the stars light up in turn */
+.pulse-ring{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px;border-radius:50%;border:1px solid var(--lime);opacity:0;animation:ring 3.6s ease-out infinite}
+.pulse-ring+.pulse-ring{animation-delay:.5s}
+.star-row{display:flex;gap:10px;position:relative}
+.star-row svg{width:30px;height:30px;color:rgba(255,255,255,.18);animation:star-on 3.6s var(--ease) infinite}
+.star-row svg:nth-child(2){animation-delay:.15s}
+.star-row svg:nth-child(3){animation-delay:.3s}
+.star-row svg:nth-child(4){animation-delay:.45s}
+.star-row svg:nth-child(5){animation-delay:.6s}
+@keyframes star-on{0%,12%{color:rgba(255,255,255,.18);transform:none;filter:none}22%,78%{color:var(--lime);transform:translateY(-4px) scale(1.12);filter:drop-shadow(0 0 8px var(--lime-glow))}90%,100%{color:rgba(255,255,255,.18);transform:none;filter:none}}
+
+/* card 3: the page scrolls itself */
+.mini-browser{width:70%;height:112px;border-radius:10px;border:1px solid var(--line-strong);background:#0f1112;overflow:hidden}
+.mini-browser .bar{height:16px;display:flex;gap:4px;align-items:center;padding:0 8px;background:rgba(255,255,255,.06)}
+.mini-browser .bar b{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.3)}
+.mini-browser .page{padding:8px;display:grid;gap:6px;animation:page-scroll 6s ease-in-out infinite}
+.mini-browser .page i{display:block;height:9px;border-radius:5px;background:rgba(255,255,255,.12)}
+.mini-browser .page i.h{height:26px;background:linear-gradient(90deg,rgba(200,255,62,.55),rgba(200,255,62,.12))}
+.mini-browser .page i.s{width:60%}
+@keyframes page-scroll{0%,15%{transform:none}45%,60%{transform:translateY(-42px)}90%,100%{transform:none}}
+
+@media (max-width:980px){.cards{grid-template-columns:1fr}.card:hover{transform:none}}
+
+/* =========================================================
+   8. INTERACTIVE DEMO
+   ========================================================= */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center}
+.demo-tabs{display:grid;gap:var(--s3);margin-top:var(--s6)}
+.tab{
+  text-align:left;display:flex;gap:var(--s4);align-items:center;padding:var(--s4) var(--s5);border-radius:var(--radius-m);
+  background:var(--surface);border:1px solid var(--line);transition:border-color .3s,background .3s,transform .3s var(--ease);
+}
+.tab:hover{transform:translateX(4px);border-color:var(--line-strong)}
+.tab[aria-selected="true"]{border-color:var(--lime);background:rgba(200,255,62,.07)}
+.tab .t-ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);color:var(--muted);transition:background .3s,color .3s}
+.tab[aria-selected="true"] .t-ic{background:var(--lime);color:var(--ink)}
+.tab .t-ic svg{width:22px;height:22px}
+.tab strong{display:block;font-family:var(--font-display);font-size:1.15rem;letter-spacing:-.02em}
+.tab span.d{display:block;color:var(--muted);font-size:.92rem;line-height:1.4}
+.demo-note{margin-top:var(--s5);display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:var(--muted);padding:var(--s3) var(--s4);border-radius:var(--radius-s);border:1px dashed var(--line-strong)}
+.demo-note svg{flex:none;width:18px;height:18px;margin-top:.2rem;color:var(--lime)}
+
+.demo-stage{position:relative;display:grid;place-items:center;padding:var(--s7) 0;font-size:16px}
+.demo-stage .halo{position:absolute;left:50%;top:50%;width:280px;height:280px;margin:-140px;border-radius:50%;border:1.5px solid var(--lime);opacity:0;animation:ring 4.2s var(--ease) infinite;pointer-events:none}
+.demo-stage .halo:nth-child(2){animation-delay:1.4s}
+.demo-stage .halo:nth-child(3){animation-delay:2.8s}
+.demo-stage::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,62,.16),transparent 65%);filter:blur(30px)}
+.d-phone{position:relative;width:290px;height:580px;border-radius:44px;padding:11px;background:linear-gradient(160deg,#2c2f30,#101213);border:1px solid var(--line-strong);box-shadow:0 50px 90px -30px rgba(0,0,0,.9)}
+.d-screen{position:relative;height:100%;border-radius:34px;background:#101213;overflow:hidden}
+.d-screen::before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:84px;height:22px;border-radius:14px;background:#000;z-index:3}
+.panel{position:absolute;inset:0;padding:48px 18px 18px;overflow:hidden;display:flex;flex-direction:column;gap:12px;opacity:0;visibility:hidden;transform:translateX(24px) scale(.98);transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+.panel.active{opacity:1;visibility:visible;transform:none;transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s}
+.panel h4{font-size:1.3rem;font-weight:800}
+.panel .sub{font-size:.78rem;color:var(--muted);margin-top:-8px}
+
+/* menu panel */
+.p-cats{display:flex;gap:6px;font-size:.74rem;overflow:hidden}
+.p-cats span{padding:6px 12px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.p-cats span.on{background:var(--lime);color:var(--ink);border-color:var(--lime);font-weight:600}
+.p-item{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.p-thumb{flex:none;width:52px;height:52px;border-radius:14px}
+.p-item b{display:block;font-size:.9rem;line-height:1.2}
+.p-item small{display:block;font-size:.72rem;color:var(--muted);line-height:1.3;margin-top:2px}
+.p-item em{margin-left:auto;font-style:normal;font-weight:700;color:var(--lime);font-size:.88rem}
+.t4{background:radial-gradient(circle at 30% 30%,#d9c3a0,#6b4a2a)}
+.t5{background:radial-gradient(circle at 30% 30%,#cfe3a4,#5b7f2a)}
+
+/* review panel */
+.r-card{margin-top:auto;margin-bottom:auto;text-align:center;display:grid;gap:14px;justify-items:center}
+.r-logo{width:68px;height:68px;border-radius:20px;background:linear-gradient(135deg,var(--lime),var(--lime-deep));display:grid;place-items:center;color:var(--ink);font:800 1.6rem var(--font-display)}
+.r-stars{display:flex;gap:6px}
+.r-stars button{background:none;border:0;padding:2px;color:rgba(255,255,255,.2);transition:color .2s,transform .25s var(--ease)}
+.r-stars button svg{width:34px;height:34px}
+.r-stars button.on{color:var(--lime)}
+.r-stars button:hover{transform:scale(1.15)}
+.r-hint{font-size:.78rem;color:var(--muted)}
+.r-btn{width:100%;padding:14px;border-radius:99px;border:0;background:var(--lime);color:var(--ink);font-weight:700;transition:transform .2s,box-shadow .3s}
+.r-btn:hover{box-shadow:0 10px 30px -8px var(--lime-glow)}
+.r-btn:active{transform:scale(.97)}
+.toast{position:absolute;left:14px;right:14px;bottom:16px;padding:12px 14px;border-radius:14px;background:#f3f5f0;color:#0c0d0e;font-size:.76rem;font-weight:600;line-height:1.35;transform:translateY(140%);transition:transform .45s var(--ease);z-index:4}
+.toast.show{transform:none}
+
+/* website panel */
+.w-nav{display:flex;justify-content:space-between;align-items:center;font:800 .95rem var(--font-display)}
+.w-nav small{display:flex;gap:8px;font:500 .62rem var(--font-body);color:var(--muted)}
+.w-hero{border-radius:18px;padding:18px 14px;background:linear-gradient(150deg,#3b2a1a,#17110b);border:1px solid var(--line);position:relative;overflow:hidden}
+.w-hero::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(255,196,120,.45),transparent 70%)}
+.w-hero h5{margin:0;font:800 1.35rem/1.05 var(--font-display);letter-spacing:-.03em;position:relative}
+.w-hero p{margin-top:6px;font-size:.72rem;color:#d9c9b4;position:relative}
+.w-actions{display:flex;gap:8px;margin-top:12px;position:relative}
+.w-actions span{padding:7px 12px;border-radius:99px;font-size:.68rem;font-weight:700;background:var(--lime);color:var(--ink)}
+.w-actions span+span{background:rgba(255,255,255,.12);color:#fff}
+.w-info{display:grid;gap:8px}
+.w-info div{display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:.74rem}
+.w-info span{color:var(--muted)}
+.w-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.w-grid i{display:block;height:64px;border-radius:12px}
+
+@media (max-width:980px){.demo{grid-template-columns:1fr;gap:var(--s6)}.demo-stage{order:-1}}
+
+/* =========================================================
+   9. HOW IT WORKS
+   ========================================================= */
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);padding-top:var(--s5)}
+.steps .track{position:absolute;left:0;right:0;top:calc(var(--s5) + 28px);height:2px;background:var(--line)}
+.steps .track i{position:absolute;inset:0;background:linear-gradient(90deg,var(--lime),var(--lime-deep));box-shadow:0 0 14px var(--lime-glow);transform:scaleX(0);transform-origin:left;transition:transform 2.2s var(--ease) .2s}
+.steps.in .track i{transform:scaleX(1)}
+.step{position:relative}
+.step .num{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:800 1.15rem var(--font-display);background:var(--bg);border:2px solid var(--line-strong);color:var(--muted);transition:border-color .5s,color .5s,box-shadow .5s,background .5s}
+.steps.in .step .num{border-color:var(--lime);color:var(--lime);box-shadow:0 0 24px -4px var(--lime-glow)}
+.steps.in .step:nth-child(3) .num{transition-delay:.8s}
+.steps.in .step:nth-child(4) .num{transition-delay:1.6s}
+.step h3{margin:var(--s5) 0 var(--s3);font-size:1.5rem;font-weight:700}
+.step p{color:var(--muted);max-width:22em}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:var(--s7);padding-left:0}
+  .steps .track{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto}
+  .steps .track i{transform:scaleY(0);transform-origin:top}
+  .steps.in .track i{transform:scaleY(1)}
+  .step{padding-left:80px}
+  .step .num{position:absolute;left:0;top:0}
+  .step h3{margin-top:0;padding-top:.7rem}
+}
+
+/* =========================================================
+   10. WHY SAFETAP
+   ========================================================= */
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s8);align-items:start}
+.why .section-head{position:sticky;top:calc(var(--nav-h) + var(--s6));margin-bottom:0}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.benefit{padding:var(--s5);border-radius:var(--radius-m);background:var(--surface);border:1px solid var(--line);transition:transform .4s var(--ease),border-color .3s,background .3s}
+.benefit:hover{transform:translateY(-4px);border-color:rgba(200,255,62,.5);background:rgba(200,255,62,.04)}
+.benefit .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:var(--s4);background:rgba(200,255,62,.12);color:var(--lime)}
+.benefit .ic svg{width:24px;height:24px;transition:transform .5s var(--ease)}
+.benefit:hover .ic svg{transform:rotate(-8deg) scale(1.12)}
+.benefit h3{font-size:1.25rem;font-weight:700;margin-bottom:var(--s2)}
+.benefit p{color:var(--muted);font-size:.98rem}
+@media (max-width:980px){.why{grid-template-columns:1fr;gap:var(--s6)}.why .section-head{position:static}}
+@media (max-width:560px){.benefits{grid-template-columns:1fr}}
+
+/* =========================================================
+   10b. BRAND PREVIEW LAB (3D cards)
+   ========================================================= */
+.brand-lab{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--s7);align-items:center}
+.lab-controls{display:grid;gap:var(--s5)}
+.lab-controls .section-head{margin-bottom:0}
+.lab-field{display:grid;gap:.55rem}
+.lab-field>label,.lab-field>span.lbl{font-size:.9rem;font-weight:600}
+.lab-field input{width:100%;padding:.95rem 1.1rem;border-radius:var(--radius-s);background:rgba(0,0,0,.35);border:1px solid var(--line-strong);font-size:1.1rem;transition:border-color .25s,box-shadow .25s}
+.lab-field input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,255,62,.18)}
+.swatches{display:flex;gap:.65rem;flex-wrap:wrap}
+.swatch{width:40px;height:40px;border-radius:50%;border:2px solid transparent;background:var(--c);box-shadow:0 0 0 3px var(--bg) inset;transition:transform .25s var(--ease),border-color .25s}
+.swatch:hover{transform:scale(1.1)}
+.swatch[aria-checked="true"]{border-color:#fff}
+.seg{display:inline-grid;grid-auto-flow:column;gap:4px;padding:4px;border-radius:99px;background:var(--surface);border:1px solid var(--line);width:max-content}
+.seg button{padding:.55rem 1.2rem;border-radius:99px;border:0;background:transparent;color:var(--muted);font-weight:600;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--lime);color:var(--ink)}
+.lab-btns{display:flex;gap:.6rem;flex-wrap:wrap}
+.lab-hint{font-size:.9rem;color:var(--muted)}
+
+.lab-stage{
+  --brand:#c8ff3e;--bfs:1.35em;
+  position:relative;font-size:16px;min-height:34em;border-radius:var(--radius-l);overflow:hidden;
+  display:flex;align-items:center;justify-content:space-around;gap:2em;padding:2em 1em;
+  perspective:1400px;border:1px solid var(--line);
+  background:
+    radial-gradient(60% 55% at 50% 45%,rgba(200,255,62,.10),transparent 70%),
+    linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,
+    var(--bg-2);
+}
+.stage-tag{position:absolute;left:1em;top:1em;z-index:5;font-size:.78em;color:var(--muted);padding:.4em .9em;border-radius:99px;border:1px dashed var(--line-strong);background:rgba(12,13,14,.7)}
+
+.mover,.bob,.card3d{transform-style:preserve-3d}
+.mover{position:relative;transform:translate(var(--tx,0px),var(--ty,0px))}
+.mover::after{content:"";position:absolute;left:10%;right:10%;bottom:-2em;height:1em;border-radius:50%;background:radial-gradient(rgba(0,0,0,.55),transparent 70%);filter:blur(6px)}
+.bob{animation:bob 6s ease-in-out infinite}
+.mover.qr .bob{animation-delay:-2.4s}
+@keyframes bob{50%{transform:translateY(-.7em)}}
+.card3d{position:relative;cursor:grab;touch-action:none;outline-offset:8px;
+  transform:rotateX(calc(var(--rx,0deg) + var(--ox,0deg))) rotateY(calc(var(--ry,0deg) + var(--oy,0deg)))}
+.card3d.drag{cursor:grabbing}
+.nfc-card{width:19em;height:12em}
+.qr-tent{width:13em;height:18em}
+.face{position:absolute;inset:0;border-radius:1.2em;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.face.back{transform:rotateY(180deg)}
+.sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.2) 48%,transparent 66%);background-size:260% 100%;background-position:var(--sx,50%) 0}
+
+.mark{flex:none;width:2.2em;height:2.2em;border-radius:.7em;display:grid;place-items:center;background:var(--brand);color:var(--ink);font:800 1.05em var(--font-display)}
+.bname{font:800 var(--bfs)/1.05 var(--font-display);letter-spacing:-.03em;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* NFC tap card */
+.nfc-front{padding:1.2em 1.3em;display:flex;flex-direction:column;justify-content:space-between;color:var(--text);
+  border:1px solid var(--line-strong);
+  background:radial-gradient(120% 90% at 100% 0%,color-mix(in srgb,var(--brand) 38%,transparent),transparent 60%),linear-gradient(150deg,#262a2b,#0f1112)}
+.nf-top{display:flex;align-items:center;gap:.8em;max-width:78%}
+.nf-wave{position:absolute;right:1.2em;top:50%;width:3.6em;height:3.6em;margin-top:-1.4em;display:grid;place-items:center;color:var(--brand)}
+.nf-wave svg{width:2.2em;height:2.2em;position:relative;z-index:1}
+.nf-wave .rg{position:absolute;inset:0;border-radius:50%;border:2px solid var(--brand);opacity:0;animation:ring 3.4s ease-out infinite}
+.nf-wave .rg.r2{animation-delay:1.1s}
+.nf-bot{display:flex;flex-direction:column;gap:.15em}
+.nf-bot span{font-weight:600;font-size:.95em}
+.nf-bot small{font-size:.7em;color:var(--muted)}
+.nfc-back{display:grid;place-content:center;justify-items:center;gap:.7em;text-align:center;color:var(--ink);
+  background:linear-gradient(150deg,var(--brand),color-mix(in srgb,var(--brand) 55%,#000))}
+.nfc-back .big{width:3.4em;height:3.4em}
+.nfc-back b{font:800 1.3em var(--font-display);letter-spacing:-.03em}
+.nfc-back small{font-size:.72em;opacity:.75}
+.burst{position:absolute;right:1.8em;top:50%;width:2.4em;height:2.4em;margin-top:-.8em;border-radius:50%;border:2px solid var(--brand);opacity:0;pointer-events:none}
+.mover.tapping .burst{animation:burst 1.4s ease-out}
+.mover.tapping .burst.b2{animation-delay:.2s}
+.mover.tapping .burst.b3{animation-delay:.4s}
+@keyframes burst{0%{transform:scale(1);opacity:.9}100%{transform:scale(9);opacity:0}}
+.tap-chip{position:absolute;left:1.3em;bottom:1.1em;padding:.4em .8em;border-radius:99px;background:var(--brand);color:var(--ink);font:700 .75em var(--font-body);opacity:0;transform:translateY(.6em)}
+.mover.tapping .tap-chip{animation:chip 2s var(--ease)}
+@keyframes chip{0%,15%{opacity:0;transform:translateY(.6em)}30%,80%{opacity:1;transform:none}100%{opacity:0}}
+.mover.tapping .nf-bot{opacity:.15;transition:opacity .3s}
+
+/* QR table card */
+.qr-front{display:flex;flex-direction:column;align-items:center;background:#f3f5f0;color:#0c0d0e;text-align:center}
+.qt-band{width:100%;display:flex;align-items:center;gap:.7em;padding:1em 1.1em;background:var(--brand);color:var(--ink);text-align:left}
+.qt-band .mark{background:var(--ink);color:var(--brand)}
+.qt-qr{position:relative;width:8em;height:8em;margin:1.2em 0 .7em}
+.qt-qr svg{width:100%;height:100%}
+.qr-front p{margin:0;font:800 1.1em var(--font-display);letter-spacing:-.02em}
+.qr-front small{margin-top:.2em;font-size:.72em;color:#5d625d}
+.qr-front em{margin-top:auto;margin-bottom:.9em;font:600 .62em var(--font-body);font-style:normal;color:#8a8f8a}
+.qr-back{display:grid;place-content:center;justify-items:center;gap:.8em;text-align:center;color:var(--text);background:radial-gradient(100% 70% at 50% 0%,color-mix(in srgb,var(--brand) 35%,transparent),transparent 70%),linear-gradient(160deg,#262a2b,#0f1112);border:1px solid var(--line-strong)}
+.qr-back .mark{width:3.4em;height:3.4em;font-size:1.3em}
+.qr-back b{font:800 1.2em var(--font-display);letter-spacing:-.02em;max-width:9em}
+.qr-back .stars{display:flex;gap:.25em;color:var(--brand)}
+.qr-back .stars svg{width:1.4em;height:1.4em}
+.qr-back small{font-size:.7em;color:var(--muted)}
+
+@media (max-width:980px){.brand-lab{grid-template-columns:1fr;gap:var(--s6)}}
+@media (max-width:700px){
+  .lab-stage{flex-direction:column;gap:3.2em;padding:3.2em 1em 3em;font-size:12.5px;min-height:0}
+}
+
+/* =========================================================
+   11. FINAL CTA
+   ========================================================= */
+.cta{padding:0 0 var(--s9)}
+.cta-box{
+  position:relative;overflow:hidden;text-align:center;color:var(--ink);
+  padding:clamp(3rem,8vw,6.5rem) var(--s5);border-radius:var(--radius-l);
+  background:radial-gradient(ellipse at 20% 0%,#e4ff8a,transparent 55%),linear-gradient(135deg,#c8ff3e,#8fdc00);
+  box-shadow:0 0 120px -20px var(--lime-glow);
+}
+.cta-box::before,.cta-box::after{content:"";position:absolute;border-radius:50%;border:1.5px solid rgba(10,18,0,.18);left:50%;top:50%;width:300px;height:300px;margin:-150px;animation:ring 6s linear infinite;pointer-events:none}
+.cta-box::after{animation-delay:3s}
+.cta-box>*{position:relative;z-index:1}
+.cta-box h2{font-size:clamp(2.2rem,6vw,4.6rem);font-weight:800;max-width:14em;margin-inline:auto;letter-spacing:-.04em}
+.cta-box p{margin:var(--s4) auto 0;max-width:30em;font-size:1.15rem;color:rgba(10,18,0,.75)}
+.cta-actions{display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:center;margin-top:var(--s6)}
+.cta-status{min-height:1.6em;margin-top:var(--s4);font-size:.95rem;font-weight:600}
+
+/* =========================================================
+   12. CONTACT
+   ========================================================= */
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s8);align-items:start}
+.contact-info ul{margin-top:var(--s6);display:grid;gap:var(--s4)}
+.contact-info li{display:flex;gap:var(--s3);color:var(--muted)}
+.contact-info a{transition:color .2s}
+.contact-info a:hover{color:var(--lime)}
+.contact-info li svg{flex:none;width:20px;height:20px;margin-top:.25rem;color:var(--lime)}
+.form{padding:var(--s6);border-radius:var(--radius-l);background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.field{display:grid;gap:.45rem}
+.field.full{grid-column:1/-1}
+.field label{font-size:.9rem;font-weight:600}
+.field label .req{color:var(--lime)}
+.field input,.field select,.field textarea{
+  width:100%;padding:.85rem 1rem;border-radius:var(--radius-s);background:rgba(0,0,0,.35);border:1px solid var(--line-strong);
+  transition:border-color .25s,box-shadow .25s;
+}
+.field textarea{min-height:130px;resize:vertical}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%239ba19b' stroke-width='2'%3E%3Cpath d='m1 1 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem}
+.field select option{background:#17191a;color:var(--text)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,255,62,.18)}
+.field [aria-invalid="true"]{border-color:#ff6b6b}
+.err{min-height:1.1em;font-size:.82rem;color:#ff8d8d}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-foot{grid-column:1/-1;display:grid;gap:var(--s3)}
+.form-status{padding:var(--s4);border-radius:var(--radius-s);font-size:.95rem;display:none}
+.form-status.show{display:block;animation:rise .5s var(--ease)}
+.form-status.ok{background:rgba(200,255,62,.1);border:1px solid rgba(200,255,62,.4)}
+.form-status.warn{background:rgba(255,200,80,.08);border:1px solid rgba(255,200,80,.4)}
+.form-status.bad{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.4)}
+@media (max-width:980px){.contact{grid-template-columns:1fr;gap:var(--s6)}}
+@media (max-width:560px){.form{grid-template-columns:1fr;padding:var(--s5)}}
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+.footer{border-top:1px solid var(--line);padding:var(--s8) 0 var(--s6);background:linear-gradient(180deg,transparent,rgba(0,0,0,.4))}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:var(--s7)}
+.f-brand p{margin-top:var(--s4);color:var(--muted);max-width:22em;font-size:.98rem}
+.f-tag{margin-top:var(--s5);font:700 1.2rem var(--font-display);letter-spacing:-.02em;color:var(--lime)}
+.footer h4{font:600 .95rem var(--font-body);letter-spacing:0;margin-bottom:var(--s4)}
+.footer li{margin-bottom:.65rem;color:var(--muted);font-size:.97rem}
+.footer a{transition:color .2s}
+.footer a:hover{color:var(--lime)}
+.socials{display:flex;gap:var(--s3);margin-top:var(--s4)}
+.socials a{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line-strong);color:var(--muted);transition:color .2s,border-color .2s,transform .3s var(--ease)}
+.socials a:hover{transform:translateY(-3px);border-color:var(--lime)}
+.socials svg{width:18px;height:18px}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3);margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.f-grid{grid-template-columns:1fr 1fr}.f-brand{grid-column:1/-1}}
+
+/* =========================================================
+   14. REDUCED MOTION
+   ========================================================= */
+/* shared keyframes (ring was accidentally dropped in the last revision: restored) */
+@keyframes ring{0%{transform:scale(1);opacity:.75}100%{transform:scale(3);opacity:0}}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.9);opacity:0}}
+@keyframes tap-ping{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.7)}}
+
+/* reveal: once an element has revealed, give hover transitions back to cards/benefits */
+.js .card.reveal.done{transition:transform .5s var(--ease),border-color .4s,box-shadow .5s;transition-delay:0s}
+.js .benefit.reveal.done{transition:transform .4s var(--ease),border-color .3s,background .3s;transition-delay:0s}
+
+/* step 3 "Go Live" pings once the line reaches it */
+.step .num{position:relative}
+.step .num::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--lime);opacity:0}
+.steps.in .step:nth-child(4) .num::after{animation:ping 2.4s ease-out infinite 2.8s}
+
+/* demo: tap ripple whenever the screen changes */
+.tap-dot{position:absolute;left:50%;bottom:20%;width:46px;height:46px;margin:-23px;border-radius:50%;border:2px solid var(--lime);background:rgba(200,255,62,.18);opacity:0;pointer-events:none;z-index:5}
+.tap-dot.go{animation:tap-ping .8s ease-out}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .js .reveal,.js .hero-copy>*{opacity:1;transform:none}
+  .steps .track i{transform:none}
+  .tag .ring,.scan,.step .num::after,.qr-scan,.vf-scan,.qr-lock,.demo-stage .halo,.bg-fx .dot{display:none}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Shared SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 32 32">
+      <path d="M16 2 28 6.5V15c0 7.5-5.2 12.6-12 15C9.2 27.6 4 22.5 4 15V6.5z" fill="rgba(200,255,62,.08)" stroke="#c8ff3e" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M12.2 16.2a5.4 5.4 0 0 1 7.6 0M9.4 13.4a9.4 9.4 0 0 1 13.2 0" fill="none" stroke="#c8ff3e" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="20" r="1.9" fill="#c8ff3e"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 20 20"><path d="m4 10.5 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.9-4.7 4.5 1.2 6.4L12 17.3l-5.7 3.2 1.2-6.4L2.8 9.6l6.4-.9z" fill="currentColor"/></symbol>
+    <symbol id="i-nfc" viewBox="0 0 24 24"><path d="M6 8.5a6 6 0 0 1 0 7M10 6a10 10 0 0 1 0 12M14 3.5a14 14 0 0 1 0 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 9h19" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM18 18h3v3h-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-touch" viewBox="0 0 24 24"><path d="M9 11V5.5a1.8 1.8 0 0 1 3.6 0V11m0-1.5a1.8 1.8 0 0 1 3.6 0V12m0-1a1.8 1.8 0 0 1 3.4.8V15a6.5 6.5 0 0 1-6.5 6.5h-1A6 6 0 0 1 7 18l-3-4.6a1.7 1.7 0 0 1 2.7-2L9 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-.9 2-1.8 0-1.2-.9-1.4-.9-2.5 0-1 .8-1.7 1.9-1.7H17a4 4 0 0 0 4-4C21 6.7 17 3 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="11" cy="7.2" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-grow" viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-7M21 16V4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v5.5M12 7.5v.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7.5 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-6 7-11.5a7 7 0 0 0-14 0c0 5.5 7 11.5 7 11.5z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-phone2" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V16M8 7.8v.01M12 16v-5.5m0 2c0-1.4 1-2 2.2-2s2 .8 2 2.3V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m4 4 16 16M20 4 4 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg-fx" id="bgfx" aria-hidden="true"></div>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo" aria-label="SafeTap home">
+      <svg aria-hidden="true"><use href="#i-logo"/></svg>SafeTap
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Get Started <span class="arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Turn <span class="lime">Every Tap</span> Into an Opportunity.</h1>
+      <p class="hero-sub">Smart QR and NFC experiences for modern businesses. Help customers discover your menu, connect with your brand, and leave reviews with a simple tap.</p>
+      <div class="hero-cta">
+        <a href="#solutions" class="btn btn-primary">Explore Solutions <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Let's Talk <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="hero-tags" aria-label="Highlights">
+        <li>Tap. Connect. Grow.</li>
+        <li>QR + NFC Technology</li>
+        <li>Built for Local Businesses</li>
+      </ul>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <div class="glow a"></div><div class="glow b"></div>
+
+      <div class="cap">
+        <span>Hold near a tag or scan a code</span>
+        <span>Tap the logo: review page opens</span>
+        <span>Scan the code: menu opens</span>
+      </div>
+
+      <div class="qr-card">
+        <div class="qr-wrap">
+          <svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg>
+          <i class="qr-scan"></i><i class="qr-lock"></i>
+        </div>
+        <span>Scan for menu</span>
+      </div>
+
+      <div class="tag">
+        <span class="ring"></span><span class="ring r2"></span><span class="ring r3"></span>
+        <svg class="logo-big"><use href="#i-logo"/></svg>
+        <p>SafeTap<small>Tap here</small></p>
+      </div>
+
+      <div class="phone">
+        <div class="screen">
+          <div class="layer l-menu">
+            <div class="m-head">Sample Café <span class="m-chip">Menu</span></div>
+            <div class="m-cats"><span>Coffee</span><span>Bakes</span><span>Sweet</span></div>
+            <div class="m-item"><div class="m-thumb t1"></div><div><b>Filter Coffee</b><small>South Indian style</small></div><em>₹90</em></div>
+            <div class="m-item"><div class="m-thumb t2"></div><div><b>Almond Croissant</b><small>Baked fresh</small></div><em>₹140</em></div>
+            <div class="m-item"><div class="m-thumb t3"></div><div><b>Berry Cheesecake</b><small>Slice</small></div><em>₹220</em></div>
+            <div class="m-bar">View full menu</div>
+          </div>
+          <div class="layer l-idle">
+            <div class="clock">9:41</div>
+            <p>Hold near a SafeTap tag or scan a code</p>
+          </div>
+          <div class="layer l-review">
+            <div class="r-logo">S</div>
+            <h5>Sample Café</h5>
+            <p>How was your visit?</p>
+            <div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+            <div class="m-bar">Leave a Review</div>
+          </div>
+          <div class="layer l-cam">
+            <div class="vf">
+              <svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg>
+              <b></b><b></b><b></b><b></b>
+              <i class="vf-scan"></i>
+            </div>
+            <p>Point at the QR code</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notif n2"><i><svg><use href="#i-star"/></svg></i><div>Review page ready<small>Tap detected</small></div></div>
+      <div class="notif n1"><i><svg><use href="#i-check"/></svg></i><div>Menu opened<small>Table 4</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SOLUTIONS ======================= -->
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Small Interactions. Big Possibilities.</h2>
+      <p>Everything your business needs to create a smoother digital customer experience.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card c1 reveal">
+        <div class="card-vis" aria-hidden="true">
+          <div class="mq"><svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg><i class="scan"></i></div><div class="mini-menu"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <h3>Smart Digital Menus</h3>
+        <p>Give customers instant access to your menu through QR codes or NFC-enabled table tags.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mobile-friendly menus</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Table-specific QR codes</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Optional ordering links</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="QR/NFC Digital Menu">Explore Digital Menus <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card c2 reveal" style="--d:.1s">
+        <div class="card-vis" aria-hidden="true">
+          <span class="pulse-ring"></span><span class="pulse-ring"></span>
+          <div class="star-row"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+        </div>
+        <h3>Instant Review Connections</h3>
+        <p>Make it easier for happy customers to discover your Google review page using a simple tap or scan.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>NFC review stands</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>QR alternatives</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Custom branding</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="NFC Review Stand">Explore Review Stands <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card c3 reveal" style="--d:.2s">
+        <div class="card-vis" aria-hidden="true">
+          <div class="mini-browser"><div class="bar"><b></b><b></b><b></b></div><div class="page"><i class="h"></i><i></i><i class="s"></i><i></i><i class="h"></i><i class="s"></i><i></i></div></div>
+        </div>
+        <h3>Business Websites</h3>
+        <p>Give your business a professional online presence with a fast, modern landing page.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mobile-first design</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>WhatsApp contact</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Location and business information</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="Business Landing Page">Build Your Website <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DEMO ======================= -->
+<section class="section" id="demo">
+  <div class="container demo">
+    <div class="reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <h2>See How One Tap Changes Everything.</h2>
+        <p>Pick an experience and watch the phone change.</p>
+      </div>
+
+      <div class="demo-tabs" role="tablist" aria-label="Demo experiences">
+        <button class="tab" role="tab" id="tab-menu" aria-selected="true" aria-controls="panel-menu" tabindex="0">
+          <span class="t-ic"><svg aria-hidden="true"><use href="#i-qr"/></svg></span>
+          <span><strong>Digital Menu</strong><span class="d">What customers see after scanning a table QR</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-reviews" aria-selected="false" aria-controls="panel-reviews" tabindex="-1">
+          <span class="t-ic"><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+          <span><strong>Customer Reviews</strong><span class="d">A review prompt after tapping a counter stand</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-website" aria-selected="false" aria-controls="panel-website" tabindex="-1">
+          <span class="t-ic"><svg aria-hidden="true"><use href="#i-browser"/></svg></span>
+          <span><strong>Business Website</strong><span class="d">A mobile-first homepage for your business</span></span>
+        </button>
+      </div>
+
+      <p class="demo-note"><svg aria-hidden="true"><use href="#i-info"/></svg><span><b>Demonstration only.</b> The businesses, items and prices shown are made-up samples. Nothing here connects to a real business, Google, or NFC hardware.</span></p>
+    </div>
+
+    <div class="demo-stage reveal" style="--d:.15s">
+      <span class="halo" aria-hidden="true"></span><span class="halo" aria-hidden="true"></span><span class="halo" aria-hidden="true"></span>
+      <div class="d-phone">
+        <div class="d-screen">
+          <i class="tap-dot" id="tapDot" aria-hidden="true"></i>
+
+          <div class="panel active" id="panel-menu" role="tabpanel" aria-labelledby="tab-menu">
+            <h4>Sample Café</h4>
+            <p class="sub">Table 4 · Sample menu</p>
+            <div class="p-cats"><span class="on">Coffee</span><span>Bakes</span><span>Desserts</span></div>
+            <div class="p-item"><div class="p-thumb t1"></div><div><b>Filter Coffee</b><small>Strong decoction, hot milk</small></div><em>₹90</em></div>
+            <div class="p-item"><div class="p-thumb t4"></div><div><b>Cold Brew</b><small>Steeped 16 hours</small></div><em>₹160</em></div>
+            <div class="p-item"><div class="p-thumb t2"></div><div><b>Almond Croissant</b><small>Baked fresh each morning</small></div><em>₹140</em></div>
+            <div class="p-item"><div class="p-thumb t3"></div><div><b>Berry Cheesecake</b><small>Single slice</small></div><em>₹220</em></div>
+            <div class="p-item"><div class="p-thumb t5"></div><div><b>Pesto Sandwich</b><small>Grilled, with salad</small></div><em>₹180</em></div>
+          </div>
+
+          <div class="panel" id="panel-reviews" role="tabpanel" aria-labelledby="tab-reviews">
+            <div class="r-card">
+              <div class="r-logo" aria-hidden="true">S</div>
+              <h4>Sample Café</h4>
+              <p class="sub" style="margin:0">How was your visit?</p>
+              <div class="r-stars" role="group" aria-label="Rate your visit (demo)" id="rStars">
+                <button type="button" aria-label="1 star"><svg><use href="#i-star"/></svg></button>
+                <button type="button" aria-label="2 stars"><svg><use href="#i-star"/></svg></button>
+                <button type="button" aria-label="3 stars"><svg><use href="#i-star"/></svg></button>
+                <button type="button" aria-label="4 stars"><svg><use href="#i-star"/></svg></button>
+                <button type="button" aria-label="5 stars"><svg><use href="#i-star"/></svg></button>
+              </div>
+              <p class="r-hint" id="rHint">Tap a star to try it</p>
+              <button type="button" class="r-btn" id="rBtn">Leave a Review</button>
+            </div>
+            <div class="toast" id="toast" role="status">Demo only. On a real stand, this opens your Google review page.</div>
+          </div>
+
+          <div class="panel" id="panel-website" role="tabpanel" aria-labelledby="tab-website">
+            <div class="w-nav">Sample Bakery <small><span>Menu</span><span>Visit</span></small></div>
+            <div class="w-hero">
+              <h5>Fresh bread,<br>every morning.</h5>
+              <p>Small-batch bakes from a neighbourhood oven.</p>
+              <div class="w-actions"><span>Order on WhatsApp</span><span>Directions</span></div>
+            </div>
+            <div class="w-grid"><i class="t1"></i><i class="t2"></i></div>
+            <div class="w-info">
+              <div><span>Hours</span><b>7 AM – 9 PM</b></div>
+              <div><span>Location</span><b>Sample Street</b></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================= -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>From Physical to Digital in Three Simple Steps.</h2>
+    </div>
+
+    <div class="steps" id="steps" role="list">
+      <div class="track" aria-hidden="true"><i></i></div>
+      <div role="listitem" class="step reveal">
+        <div class="num" aria-hidden="true">01</div>
+        <h3>Choose Your Solution</h3>
+        <p>Tell us about your business and the experience you want to create.</p>
+      </div>
+      <div role="listitem" class="step reveal" style="--d:.2s">
+        <div class="num" aria-hidden="true">02</div>
+        <h3>We Set It Up</h3>
+        <p>We create your digital menu, website, QR codes, or branded NFC solution.</p>
+      </div>
+      <div role="listitem" class="step reveal" style="--d:.4s">
+        <div class="num" aria-hidden="true">03</div>
+        <h3>Go Live</h3>
+        <p>Place your QR codes or NFC products where customers can easily discover them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHY ======================= -->
+<section class="section" id="why">
+  <div class="container why">
+    <div class="section-head reveal">
+      <h2>Technology Should Feel Effortless.</h2>
+      <p>Why businesses choose SafeTap: simple for customers, simple for you.</p>
+    </div>
+    <div class="benefits">
+      <div class="benefit reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-touch"/></svg></div><h3>Easy to Use</h3><p>Simple interactions customers already understand.</p></div>
+      <div class="benefit reveal" style="--d:.08s"><div class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Made for Mobile</h3><p>Designed to work smoothly on smartphones.</p></div>
+      <div class="benefit reveal" style="--d:.16s"><div class="ic"><svg aria-hidden="true"><use href="#i-palette"/></svg></div><h3>Your Brand, Your Way</h3><p>Custom colours, logos, and layouts.</p></div>
+      <div class="benefit reveal" style="--d:.24s"><div class="ic"><svg aria-hidden="true"><use href="#i-grow"/></svg></div><h3>Built to Grow</h3><p>Start with one solution and expand as your business grows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BRAND LAB ======================= -->
+<section class="section" id="brand-lab" aria-labelledby="lab-title">
+  <div class="container brand-lab">
+    <div class="lab-controls reveal">
+      <div class="section-head">
+        <h2 id="lab-title">See It With Your Brand.</h2>
+        <p>Type your business name and play with a sample tap card and table QR card.</p>
+      </div>
+
+      <div class="lab-field">
+        <label for="brandInput">Your business name</label>
+        <input id="brandInput" type="text" maxlength="28" placeholder="e.g. Brew &amp; Bloom" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="lab-field">
+        <span class="lbl" id="swLabel">Accent colour</span>
+        <div class="swatches" role="radiogroup" aria-labelledby="swLabel" id="swatches">
+          <button type="button" class="swatch" role="radio" aria-checked="true" aria-label="Lime" data-c="#c8ff3e" style="--c:#c8ff3e"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Amber" data-c="#ffb938" style="--c:#ffb938"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Sky blue" data-c="#5cc8ff" style="--c:#5cc8ff"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Rose" data-c="#ff7a9c" style="--c:#ff7a9c"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="Violet" data-c="#b89cff" style="--c:#b89cff"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" aria-label="White" data-c="#f3f5f0" style="--c:#f3f5f0"></button>
+        </div>
+      </div>
+
+      <div class="lab-field">
+        <span class="lbl" id="modeLabel">Drag to</span>
+        <div class="seg" role="group" aria-labelledby="modeLabel">
+          <button type="button" id="modeRotate" aria-pressed="true">Rotate</button>
+          <button type="button" id="modeMove" aria-pressed="false">Move</button>
+        </div>
+      </div>
+
+      <div class="lab-btns">
+        <button type="button" class="btn btn-primary btn-sm" id="labTap">Play tap</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="labFlip">Flip cards</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="labReset">Reset</button>
+      </div>
+      <p class="lab-hint">Drag a card, or focus it and use the arrow keys.</p>
+    </div>
+
+    <div class="lab-stage reveal" id="labStage" style="--d:.12s">
+      <span class="stage-tag">Sample preview. Not a real product photo, and NFC can't be tested on this page.</span>
+
+      <div class="mover nfc" data-card="nfc">
+        <div class="bob">
+          <div class="card3d nfc-card lab-card" tabindex="0" role="group" aria-label="Sample NFC tap card. Drag or use arrow keys to rotate or move it.">
+            <div class="face nfc-front front">
+              <div class="nf-top"><span class="mark" data-initial>Y</span><b class="bname" data-brand>Your Brand</b></div>
+              <div class="nf-wave" aria-hidden="true"><span class="rg"></span><span class="rg r2"></span><svg><use href="#i-nfc"/></svg></div>
+              <span class="burst" aria-hidden="true"></span><span class="burst b2" aria-hidden="true"></span><span class="burst b3" aria-hidden="true"></span>
+              <div class="nf-bot"><span>Tap to leave a review</span><small>Powered by SafeTap</small></div>
+              <span class="tap-chip" aria-hidden="true">Review page ready</span>
+              <span class="sheen"></span>
+            </div>
+            <div class="face nfc-back back">
+              <svg class="big"><use href="#i-nfc"/></svg>
+              <b>Tap your phone here</b>
+              <small data-brand>Your Brand</small>
+              <span class="sheen"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mover qr" data-card="qr">
+        <div class="bob">
+          <div class="card3d qr-tent lab-card" tabindex="0" role="group" aria-label="Sample QR table card. Drag or use arrow keys to rotate or move it.">
+            <div class="face qr-front front">
+              <div class="qt-band"><span class="mark" data-initial>Y</span><b class="bname" data-brand>Your Brand</b></div>
+              <div class="qt-qr"><svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg><i class="scan"></i></div>
+              <p>Scan for our menu</p>
+              <small>Table 4 · sample</small>
+              <em>Powered by SafeTap</em>
+              <span class="sheen"></span>
+            </div>
+            <div class="face qr-back back">
+              <span class="mark" data-initial>Y</span>
+              <b data-brand>Your Brand</b>
+              <div class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+              <small>Enjoyed your visit? Tap the stand to review.</small>
+              <span class="sheen"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section class="cta" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2 id="cta-title">Ready to Make Your Business Tap-Ready?</h2>
+      <p>Let's build a smarter customer experience for your business.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-dark">Start Your Project</a>
+        <button type="button" class="btn btn-outline-dark" id="waBtn">Chat on WhatsApp</button>
+      </div>
+      <p class="cta-status" id="waStatus" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="section" id="contact" style="padding-top:0">
+  <div class="container contact">
+    <div class="contact-info reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Tell us what you're building.</h2>
+        <p>Share a few details and we'll get back to you about the right setup for your business.</p>
+      </div>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:safetap2026@gmail.com">safetap2026@gmail.com</a></li>
+        <li><svg aria-hidden="true"><use href="#i-phone2"/></svg><span><a href="tel:+919789971911">+91 97899 71911</a><br><a href="tel:+919345272283">+91 93452 72283</a></span></li>
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg>Chennai, Tamil Nadu, India</li>
+      </ul>
+    </div>
+
+    <!--
+      To connect a real backend, set SAFETAP_CONFIG.formEndpoint in the script below
+      (e.g. a Formspree URL). The form then POSTs JSON to it.
+    -->
+    <form class="form reveal" id="enquiryForm" novalidate style="--d:.1s" aria-label="Enquiry form">
+      <div class="field">
+        <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="err" id="e-name"></span>
+      </div>
+      <div class="field">
+        <label for="f-biz">Business name <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-biz" name="business" type="text" autocomplete="organization" required>
+        <span class="err" id="e-biz"></span>
+      </div>
+      <div class="field full">
+        <label for="f-contact">Email or phone <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" required>
+        <span class="err" id="e-contact"></span>
+      </div>
+      <div class="field">
+        <label for="f-type">Business type <span class="req" aria-hidden="true">*</span></label>
+        <select id="f-type" name="business_type" required>
+          <option value="">Select one</option>
+          <option>Café</option>
+          <option>Restaurant</option>
+          <option>Bakery</option>
+          <option>Dessert shop</option>
+          <option>Other hospitality business</option>
+        </select>
+        <span class="err" id="e-type"></span>
+      </div>
+      <div class="field">
+        <label for="f-interest">Interested in <span class="req" aria-hidden="true">*</span></label>
+        <select id="f-interest" name="interested_in" required>
+          <option value="">Select one</option>
+          <option>QR/NFC Digital Menu</option>
+          <option>NFC Review Stand</option>
+          <option>Business Landing Page</option>
+          <option>Complete Digital Setup</option>
+        </select>
+        <span class="err" id="e-interest"></span>
+      </div>
+      <div class="field full">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" placeholder="Anything we should know? (optional)"></textarea>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Enquiry <span class="arrow" aria-hidden="true">↗</span></button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#home" class="logo"><svg aria-hidden="true"><use href="#i-logo"/></svg>SafeTap</a>
+        <p>Simple, smart QR and NFC solutions that help hospitality businesses connect with their customers.</p>
+        <p class="f-tag">Tap Into Better Experiences.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer solutions">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#solutions">Digital Menus</a></li>
+          <li><a href="#solutions">Review Stands</a></li>
+          <li><a href="#solutions">Business Websites</a></li>
+          <li><a href="#solutions">Table QR Solutions</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:safetap2026@gmail.com">safetap2026@gmail.com</a></li>
+          <li><a href="tel:+919789971911">+91 97899 71911</a></li>
+          <li><a href="tel:+919345272283">+91 93452 72283</a></li>
+          <li>Chennai, Tamil Nadu, India</li>
+        </ul>
+        <div class="socials">
+          <!-- Replace each href="#" with your real profile URL and remove data-placeholder -->
+          <a href="#" data-placeholder aria-label="Instagram (placeholder)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          <a href="#" data-placeholder aria-label="LinkedIn (placeholder)"><svg aria-hidden="true"><use href="#i-in"/></svg></a>
+          <a href="#" data-placeholder aria-label="X (placeholder)"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> SafeTap. All rights reserved.</span>
+      <span>Demo content on this page is sample material only.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CONFIG — edit these values; no other code changes needed
+   ========================================================= */
+const SAFETAP_CONFIG = {
+  // Public contact email (used for the "open in email app" fallback).
+  email: "safetap2026@gmail.com",
+
+  // WhatsApp number in international format, digits only (91 = India).
+  // Leave empty to disable: the button will then send visitors to the form instead.
+  whatsappNumber: "919789971911",
+  whatsappMessage: "Hi SafeTap, I'd like to know more about your QR/NFC solutions.",
+
+  // Form endpoint. Examples:
+  //   Formspree: "https://formspree.io/f/yourFormId"
+  //   Custom API route on Vercel: "/api/enquiry"
+  // Leave empty and the form only validates (nothing is sent).
+  formEndpoint: ""
+};
+
+document.documentElement.classList.add("js");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+/* ---------- footer year ---------- */
+$("#year").textContent = new Date().getFullYear();
+
+/* ---------- nav: blur on scroll + mobile menu ---------- */
+const nav = $("#nav"), burger = $("#burger"), navLinks = $("#navLinks");
+const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 12);
+onScroll();
+window.addEventListener("scroll", onScroll, { passive: true });
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  burger.setAttribute("aria-expanded", String(open));
+  burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+burger.addEventListener("click", () => setMenu(burger.getAttribute("aria-expanded") !== "true"));
+$$("#navLinks a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+window.matchMedia("(min-width:861px)").addEventListener("change", () => setMenu(false));
+
+/* ---------- background particles ---------- */
+(function(){
+  if (reduceMotion) return;
+  const host = $("#bgfx");
+  for (let i = 0; i < 22; i++){
+    const d = document.createElement("span");
+    d.className = "dot";
+    d.style.left = Math.random() * 100 + "%";
+    d.style.top = 10 + Math.random() * 85 + "%";
+    d.style.animationDuration = 6 + Math.random() * 8 + "s";
+    d.style.animationDelay = -Math.random() * 10 + "s";
+    host.appendChild(d);
+  }
+})();
+
+/* ---------- decorative QR pattern (NOT a scannable code) ---------- */
+(function(){
+  const N = 25;
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const inFinder = (x, y) => (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9);
+  let out = `<rect width="${N}" height="${N}" fill="#f3f5f0"/>`;
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++){
+    if (!inFinder(x, y) && rnd() > 0.52) out += `<rect x="${x}" y="${y}" width="1" height="1" fill="#0c0d0e"/>`;
+  }
+  [[0,0],[N-7,0],[0,N-7]].forEach(([x,y]) => {
+    out += `<rect x="${x}" y="${y}" width="7" height="7" fill="#0c0d0e"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#f3f5f0"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#0c0d0e"/>`;
+  });
+  $$(".deco-qr").forEach(el => { el.innerHTML = out; });
+})();
+
+/* ---------- pause hero animation when off-screen ---------- */
+(function(){
+  const scene = $(".scene");
+  if (!scene || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([en]) => scene.classList.toggle("off", !en.isIntersecting)).observe(scene);
+})();
+
+/* ---------- scroll reveal ---------- */
+(function(){
+  const targets = $$(".reveal");
+  const steps = $("#steps");
+  if (reduceMotion || !("IntersectionObserver" in window)){
+    targets.forEach(t => t.classList.add("in", "done"));
+    steps.classList.add("in");
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); setTimeout(() => en.target.classList.add("done"), 1500); io.unobserve(en.target); } });
+  }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+  targets.forEach(t => io.observe(t));
+
+  const io2 = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); io2.unobserve(en.target); } });
+  }, { threshold: 0.3 });
+  io2.observe(steps);
+})();
+
+/* ---------- card pointer glow ---------- */
+$$(".card").forEach(card => {
+  card.addEventListener("pointermove", e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    card.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+});
+
+/* card CTAs preselect the matching enquiry option */
+$$("[data-interest]").forEach(a => a.addEventListener("click", () => {
+  const sel = $("#f-interest");
+  [...sel.options].forEach(o => { if (o.text === a.dataset.interest) sel.value = o.value || o.text; });
+}));
+
+/* ---------- interactive demo ---------- */
+(function(){
+  const tabs = $$('[role="tab"]');
+  const panels = tabs.map(t => document.getElementById(t.getAttribute("aria-controls")));
+
+  const dot = $("#tapDot"), stage = $(".demo-stage"), phone = $(".d-phone");
+  let touched = false, auto = null;
+  const current = () => tabs.findIndex(t => t.getAttribute("aria-selected") === "true");
+
+  function ping(){
+    dot.classList.remove("go"); void dot.offsetWidth; dot.classList.add("go");
+  }
+  function select(i, focus, fromAuto){
+    if (!fromAuto){ touched = true; stopAuto(); }
+    tabs.forEach((t, idx) => {
+      const on = idx === i;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      panels[idx].classList.toggle("active", on);
+    });
+    if (focus) tabs[i].focus();
+    if (i !== 1) $("#toast").classList.remove("show");
+    if (!reduceMotion) ping();
+  }
+  function stopAuto(){ clearInterval(auto); auto = null; }
+  function startAuto(){
+    if (reduceMotion || touched || auto) return;
+    auto = setInterval(() => select((current() + 1) % tabs.length, false, true), 5500);
+  }
+  // auto-cycle only while visible and until the visitor interacts with the demo
+  if ("IntersectionObserver" in window && !reduceMotion){
+    new IntersectionObserver(([en]) => en.isIntersecting ? startAuto() : stopAuto(), { threshold: 0.4 }).observe(stage);
+  }
+  phone.addEventListener("pointerdown", () => { touched = true; stopAuto(); });
+  phone.addEventListener("focusin", () => { touched = true; stopAuto(); });
+
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(i));
+    t.addEventListener("keydown", e => {
+      const k = e.key;
+      if (k === "ArrowDown" || k === "ArrowRight"){ e.preventDefault(); select((i + 1) % tabs.length, true); }
+      if (k === "ArrowUp" || k === "ArrowLeft"){ e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+      if (k === "Home"){ e.preventDefault(); select(0, true); }
+      if (k === "End"){ e.preventDefault(); select(tabs.length - 1, true); }
+    });
+  });
+
+  // demo review stars (interactive sample only)
+  const stars = $$("#rStars button"), hint = $("#rHint"), toast = $("#toast");
+  let timer;
+  stars.forEach((b, i) => b.addEventListener("click", () => {
+    stars.forEach((s, j) => s.classList.toggle("on", j <= i));
+    hint.textContent = `You picked ${i + 1} of 5 (demo)`;
+  }));
+  $("#rBtn").addEventListener("click", () => {
+    toast.classList.add("show");
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove("show"), 3600);
+  });
+})();
+
+/* ---------- brand preview lab: movable, rotatable 3D cards ---------- */
+(function(){
+  const stage = $("#labStage");
+  if (!stage) return;
+  const input = $("#brandInput");
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const DEFAULT = { nfc: { rx: 8, ry: -16, tx: 0, ty: 0 }, qr: { rx: 6, ry: 14, tx: 0, ty: 0 } };
+
+  const cards = $$(".mover", stage).map(m => ({
+    mover: m, el: $(".card3d", m), key: m.dataset.card,
+    ...DEFAULT[m.dataset.card], ox: 0, oy: 0, vx: 0, vy: 0, drag: false, px: 0, py: 0, tw: null
+  }));
+
+  let mode = "rotate", touched = false, idle = 1, running = false, z = 1;
+
+  function apply(c){
+    c.el.style.setProperty("--rx", c.rx + "deg");
+    c.el.style.setProperty("--ry", c.ry + "deg");
+    c.el.style.setProperty("--ox", c.ox + "deg");
+    c.el.style.setProperty("--oy", c.oy + "deg");
+    c.el.style.setProperty("--sx", (((c.ry + c.oy) * 0.35 % 100) + 150) + "%");
+    c.mover.style.setProperty("--tx", c.tx + "px");
+    c.mover.style.setProperty("--ty", c.ty + "px");
+  }
+  function limits(){ return { x: stage.clientWidth * 0.3, y: stage.clientHeight * 0.2 }; }
+  function touch(){ touched = true; }
+  const norm = a => ((a % 360) + 540) % 360 - 180;
+
+  function tween(c, to, ms){
+    c.vx = c.vy = 0;
+    if (reduceMotion){ Object.assign(c, to); apply(c); return; }
+    c.tw = { t0: performance.now(), dur: ms, from: { rx: c.rx, ry: c.ry, tx: c.tx, ty: c.ty }, to };
+  }
+
+  function frame(now){
+    if (!running) return;
+    idle += ((touched ? 0 : 1) - idle) * 0.06;
+    cards.forEach((c, i) => {
+      const t = now / 1000 + i * 1.7;
+      c.oy = Math.sin(t * 0.6) * 13 * idle;
+      c.ox = Math.cos(t * 0.5) * 4 * idle;
+      if (c.tw){
+        const p = Math.min(1, (now - c.tw.t0) / c.tw.dur), e = 1 - Math.pow(1 - p, 3);
+        for (const k of ["rx","ry","tx","ty"]) c[k] = c.tw.from[k] + (c.tw.to[k] - c.tw.from[k]) * e;
+        if (p === 1) c.tw = null;
+      } else if (!c.drag && (Math.abs(c.vx) > 0.05 || Math.abs(c.vy) > 0.05)){
+        c.ry += c.vx * 0.6; c.rx = clamp(c.rx - c.vy * 0.6, -70, 70);
+        c.vx *= 0.94; c.vy *= 0.94;
+      }
+      apply(c);
+    });
+    requestAnimationFrame(frame);
+  }
+  function start(){ if (running || reduceMotion) return; running = true; requestAnimationFrame(frame); }
+  function stop(){ running = false; }
+
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(([en]) => en.isIntersecting ? start() : stop(), { threshold: 0.05 }).observe(stage);
+  } else start();
+  cards.forEach(apply);
+
+  /* pointer drag */
+  cards.forEach(c => {
+    const el = c.el;
+    el.addEventListener("pointerdown", e => {
+      touch(); c.tw = null; c.drag = true; c.px = e.clientX; c.py = e.clientY; c.vx = c.vy = 0;
+      c.mover.style.zIndex = ++z;
+      el.setPointerCapture(e.pointerId); el.classList.add("drag");
+    });
+    el.addEventListener("pointermove", e => {
+      if (!c.drag) return;
+      const dx = e.clientX - c.px, dy = e.clientY - c.py;
+      c.px = e.clientX; c.py = e.clientY;
+      if (mode === "rotate"){
+        c.ry += dx * 0.6; c.rx = clamp(c.rx - dy * 0.6, -70, 70);
+        c.vx = dx; c.vy = dy;
+      } else {
+        const L = limits();
+        c.tx = clamp(c.tx + dx, -L.x, L.x); c.ty = clamp(c.ty + dy, -L.y, L.y);
+      }
+      apply(c);
+    });
+    const end = () => { c.drag = false; el.classList.remove("drag"); if (reduceMotion){ c.vx = c.vy = 0; } };
+    el.addEventListener("pointerup", end);
+    el.addEventListener("pointercancel", end);
+
+    /* keyboard */
+    el.addEventListener("keydown", e => {
+      const map = { ArrowLeft: [-1,0], ArrowRight: [1,0], ArrowUp: [0,-1], ArrowDown: [0,1] };
+      const d = map[e.key]; if (!d) return;
+      e.preventDefault(); touch(); c.tw = null; c.vx = c.vy = 0;
+      if (mode === "rotate"){ c.ry += d[0] * 15; c.rx = clamp(c.rx - d[1] * 15, -70, 70); }
+      else { const L = limits(); c.tx = clamp(c.tx + d[0] * 20, -L.x, L.x); c.ty = clamp(c.ty + d[1] * 20, -L.y, L.y); }
+      apply(c);
+    });
+  });
+
+  /* mode toggle */
+  const bR = $("#modeRotate"), bM = $("#modeMove");
+  function setMode(m){
+    mode = m;
+    bR.setAttribute("aria-pressed", m === "rotate");
+    bM.setAttribute("aria-pressed", m === "move");
+    stage.style.cursor = "";
+  }
+  bR.addEventListener("click", () => setMode("rotate"));
+  bM.addEventListener("click", () => setMode("move"));
+
+  /* buttons */
+  $("#labFlip").addEventListener("click", () => {
+    touch();
+    cards.forEach(c => { const f = norm(c.ry); c.ry = f; tween(c, { rx: c.rx, ry: f + 180, tx: c.tx, ty: c.ty }, 800); });
+  });
+  $("#labReset").addEventListener("click", () => {
+    touch();
+    cards.forEach(c => { c.ry = norm(c.ry); tween(c, { ...DEFAULT[c.key] }, 800); });
+  });
+  const tapBtn = $("#labTap"), nfc = cards.find(c => c.key === "nfc");
+  tapBtn.addEventListener("click", () => {
+    touch();
+    const f = norm(nfc.ry);
+    nfc.ry = f;
+    // turn the NFC card to face the viewer, then burst
+    tween(nfc, { rx: 4, ry: 0, tx: nfc.tx, ty: nfc.ty }, 600);
+    nfc.mover.classList.remove("tapping"); void nfc.mover.offsetWidth;
+    setTimeout(() => nfc.mover.classList.add("tapping"), reduceMotion ? 0 : 450);
+    setTimeout(() => nfc.mover.classList.remove("tapping"), 2600);
+  });
+
+  /* brand name + colour */
+  function updateBrand(){
+    const name = (input.value.trim().slice(0, 28)) || "Your Brand";
+    $$("[data-brand]", stage).forEach(el => { el.textContent = name; });
+    const first = Array.from(name)[0].toUpperCase();
+    $$("[data-initial]", stage).forEach(el => { el.textContent = first; });
+    const n = Array.from(name).length;
+    stage.style.setProperty("--bfs", (n <= 10 ? 1.35 : n <= 16 ? 1.1 : 0.9) + "em");
+  }
+  input.addEventListener("input", updateBrand);
+
+  const sws = $$(".swatch");
+  sws.forEach(b => b.addEventListener("click", () => {
+    sws.forEach(x => x.setAttribute("aria-checked", x === b));
+    stage.style.setProperty("--brand", b.dataset.c);
+  }));
+})();
+
+/* ---------- WhatsApp button ---------- */
+(function(){
+  const btn = $("#waBtn"), status = $("#waStatus");
+  btn.addEventListener("click", () => {
+    const num = (SAFETAP_CONFIG.whatsappNumber || "").replace(/\D/g, "");
+    if (!num){
+      status.textContent = "WhatsApp chat isn't available yet. Please use the enquiry form below.";
+      $("#contact").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      return;
+    }
+    const url = `https://wa.me/${num}?text=${encodeURIComponent(SAFETAP_CONFIG.whatsappMessage)}`;
+    window.open(url, "_blank", "noopener");
+  });
+})();
+
+/* ---------- enquiry form ---------- */
+(function(){
+  const form = $("#enquiryForm"), status = $("#formStatus"), submit = $("#submitBtn");
+  const rules = {
+    name:     { el: "#f-name",     err: "#e-name",     msg: "Please enter your name." },
+    business: { el: "#f-biz",      err: "#e-biz",      msg: "Please enter your business name." },
+    contact:  { el: "#f-contact",  err: "#e-contact",  msg: "Enter a valid email address or phone number.",
+                test: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || /^\+?[\d\s()-]{7,}$/.test(v) },
+    type:     { el: "#f-type",     err: "#e-type",     msg: "Please choose your business type." },
+    interest: { el: "#f-interest", err: "#e-interest", msg: "Please choose what you're interested in." }
+  };
+
+  function check(key){
+    const r = rules[key], el = $(r.el), v = el.value.trim();
+    const ok = v !== "" && (!r.test || r.test(v));
+    el.setAttribute("aria-invalid", String(!ok));
+    el.setAttribute("aria-describedby", r.err.slice(1));
+    $(r.err).textContent = ok ? "" : r.msg;
+    return ok;
+  }
+  Object.keys(rules).forEach(k => {
+    const el = $(rules[k].el);
+    el.addEventListener("blur", () => check(k));
+    el.addEventListener("input", () => { if (el.getAttribute("aria-invalid") === "true") check(k); });
+  });
+
+  function show(type, text){
+    status.className = "form-status show " + type;
+    status.textContent = text;
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    status.className = "form-status";
+    const results = Object.keys(rules).map(check);
+    if (results.includes(false)){
+      const firstBad = Object.keys(rules).find(k => $(rules[k].el).getAttribute("aria-invalid") === "true");
+      $(rules[firstBad].el).focus();
+      show("bad", "Please fix the highlighted fields and try again.");
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (data._gotcha) return; // spam trap
+
+    if (!SAFETAP_CONFIG.formEndpoint){
+      // No backend connected: nothing is sent. Offer a pre-filled email instead.
+      const body = [
+        `Name: ${data.name}`, `Business: ${data.business}`, `Contact: ${data.contact}`,
+        `Business type: ${data.business_type}`, `Interested in: ${data.interested_in}`, "",
+        data.message || ""
+      ].join("\n");
+      const href = `mailto:${SAFETAP_CONFIG.email}?subject=${encodeURIComponent("SafeTap enquiry: " + data.interested_in)}&body=${encodeURIComponent(body)}`;
+      status.className = "form-status show warn";
+      status.textContent = "Your details look good, but this form isn't connected to an email service yet, so nothing has been sent. ";
+      const a = document.createElement("a");
+      a.href = href; a.textContent = "Open a ready-to-send email instead";
+      a.style.cssText = "color:var(--lime);font-weight:600;text-decoration:underline";
+      status.append(a);
+      return;
+    }
+
+    submit.disabled = true;
+    try{
+      const res = await fetch(SAFETAP_CONFIG.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      form.reset();
+      show("ok", "Thank you! Your enquiry has been sent. We'll be in touch soon.");
+    }catch(err){
+      show("bad", "Something went wrong and your enquiry wasn't sent. Please try again in a moment.");
+    }finally{
+      submit.disabled = false;
+    }
+  });
+})();
+
+/* ---------- placeholder social links ---------- */
+$$("[data-placeholder]").forEach(a => a.addEventListener("click", e => e.preventDefault()));
+</script>
+</body>
+</html>
