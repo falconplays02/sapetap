@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SafeTap | Smart QR &amp; NFC experiences for local businesses</title>
-<meta name="description" content="SafeTap helps cafés, restaurants, bakeries and dessert shops connect with customers through QR and NFC menus, Google review stands, and mobile-first business websites.">
+<title>SafeTap | Standout Websites, Web Apps & Digital Support</title>
+<meta name="description" content="SafeTap builds modern websites, custom web applications, business software, and provides ongoing website maintenance, technical support, and QR/NFC digital solutions.">
 <meta name="theme-color" content="#0c0d0e">
 <meta name="color-scheme" content="dark">
 <!-- After deploying, set your real domain here and in og:url / og:image -->
@@ -13,8 +13,8 @@
 <!-- Open Graph / social -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SafeTap">
-<meta property="og:title" content="SafeTap | Turn every tap into an opportunity">
-<meta property="og:description" content="Smart QR and NFC menus, Google review stands and business websites for modern hospitality businesses.">
+<meta property="og:title" content="SafeTap | Standout Websites. Smart Digital Solutions.">
+<meta property="og:description" content="Website development, ongoing website support, custom web applications, business software, and smart QR/NFC solutions.">
 <meta property="og:url" content="https://your-domain.com/">
 <!-- <meta property="og:image" content="https://your-domain.com/og-image.png"> -->
 <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Smart QR and NFC experiences for modern businesses.">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"SafeTap","email":"safetap2026@gmail.com","telephone":["+919789971911","+919345272283"],"address":{"@type":"PostalAddress","addressLocality":"Chennai","addressRegion":"Tamil Nadu","addressCountry":"IN"},"description":"QR and NFC menus, Google review stands and business websites for hospitality businesses."}
+{"@context":"https://schema.org","@type":"Organization","name":"SafeTap","email":"safetap2026@gmail.com","telephone":["+919789971911","+919345272283"],"address":{"@type":"PostalAddress","addressLocality":"Chennai","addressRegion":"Tamil Nadu","addressCountry":"IN"},"description":"Website development, website maintenance and technical support, custom web applications, business software, and QR/NFC digital solutions."}
 </script>
 
 <!-- Favicon (inline SVG, no extra file needed) -->
@@ -138,11 +138,11 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
   transition:background .35s,backdrop-filter .35s,border-color .35s;
 }
 .nav.scrolled{background:rgba(10,11,12,.78);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-color:var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s5)}
-.logo{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.03em}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:clamp(1rem,2vw,2rem);width:100%}
+.logo{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.03em;flex:0 0 auto;white-space:nowrap}
 .logo svg{width:30px;height:30px}
-.nav-links{display:flex;align-items:center;gap:var(--s6)}
-.nav-links a:not(.btn){color:var(--muted);font-size:.98rem;font-weight:500;position:relative;padding:.25rem 0;transition:color .2s}
+.nav-links{display:flex;align-items:center;justify-content:space-between;flex:1;min-width:0;gap:clamp(.8rem,1.6vw,1.8rem);margin-left:clamp(1rem,2vw,2.5rem)}
+.nav-links a:not(.btn){color:var(--muted);font-size:clamp(.86rem,.95vw,1rem);font-weight:500;position:relative;padding:.25rem 0;transition:color .2s;white-space:nowrap;line-height:1.25}
 .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
 .nav-links a:not(.btn):hover{color:var(--text)}
 .nav-links a:not(.btn):hover::after{transform:scaleX(1)}
@@ -156,7 +156,14 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){top:21px;transform:rotate(-45deg)}
 
+@media (max-width:1100px){
+  .nav-links{gap:.85rem;margin-left:1rem}
+  .nav-links a:not(.btn){font-size:.86rem}
+  .logo{font-size:1.2rem}
+}
 @media (max-width:860px){
+  .nav-inner{justify-content:space-between}
+  .nav-links{flex:initial;margin-left:0}
   .burger{display:block}
   .nav-links{
     position:fixed;left:0;right:0;top:var(--nav-h);
@@ -352,7 +359,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 /* =========================================================
    7. SOLUTION CARDS
    ========================================================= */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
 .card{
   --mx:50%;--my:0%;
   position:relative;display:flex;flex-direction:column;padding:var(--s6);border-radius:var(--radius-l);
@@ -738,6 +745,343 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
   .steps .track i{transform:none}
   .tag .ring,.scan,.step .num::after,.qr-scan,.vf-scan,.qr-lock,.demo-stage .halo,.bg-fx .dot{display:none}
 }
+
+/* =========================================================
+   WEBSITE STUDIO — showcase SafeTap's website design range
+   ========================================================= */
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;color:var(--lime);font-size:.78rem;font-weight:700;letter-spacing:.14em;margin-bottom:1.2rem}
+.eyebrow-dot{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 14px var(--lime)}
+.studio-top{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}
+.studio-top .section-head{margin-bottom:0;max-width:52rem}
+.studio-note{flex:none;display:flex;align-items:center;gap:.8rem;padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--muted);font-size:.78rem;line-height:1.5}
+.studio-note b{color:var(--text);font-size:.9rem}
+.studio-note-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:var(--lime);color:var(--ink);font-size:1.4rem}
+.studio-toolbar{display:flex;gap:.6rem;flex-wrap:wrap;margin:2.2rem 0 1.2rem}
+.studio-filter{display:inline-flex;align-items:center;gap:.55rem;padding:.72rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.9rem;transition:all .25s}
+.studio-filter:hover,.studio-filter.active{color:var(--ink);background:var(--lime);border-color:var(--lime)}
+.studio-filter span{font-size:.7rem;opacity:.7}
+.website-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem}
+.website-card{min-width:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));transition:transform .4s var(--ease),border-color .3s,box-shadow .4s}
+.website-card:hover{transform:translateY(-6px);border-color:rgba(200,255,62,.42);box-shadow:0 30px 65px -35px rgba(200,255,62,.26)}
+.website-card[hidden]{display:none}
+.website-featured{grid-column:span 2}
+.website-preview{position:relative;min-height:300px;padding:1.05rem;overflow:hidden;isolation:isolate}
+.website-featured .website-preview{min-height:390px}
+.preview-browser{height:27px;display:flex;align-items:center;gap:5px;position:relative;z-index:2;padding:0 .55rem;border:1px solid rgba(255,255,255,.14);border-radius:9px 9px 0 0;background:rgba(15,16,15,.82);color:#d7ddd6}
+.preview-browser>span{width:6px;height:6px;border-radius:50%;background:#69716b}
+.preview-browser>span:first-child{background:#ff796d}.preview-browser>span:nth-child(2){background:#ffd166}.preview-browser>span:nth-child(3){background:#a5e66d}
+.preview-browser small{margin-left:.55rem;font-size:.62rem;color:#aab1a9}
+.preview-browser b{margin-left:auto;font-size:.72rem;color:var(--lime)}
+.preview-label{position:absolute;bottom:1.1rem;left:1.2rem;z-index:3;padding:.35rem .6rem;border:1px solid rgba(255,255,255,.18);border-radius:6px;background:rgba(10,12,10,.72);backdrop-filter:blur(10px);font-size:.62rem;letter-spacing:.12em;color:#e5e9e2}
+.website-card-info{display:flex;justify-content:space-between;align-items:flex-end;gap:1.2rem;padding:1.35rem 1.45rem 1.5rem;border-top:1px solid var(--line)}
+.project-type{display:block;color:var(--lime);font-size:.64rem;letter-spacing:.12em;font-weight:700;margin-bottom:.55rem}
+.website-card-info h3{font-size:1.4rem;letter-spacing:-.035em;margin-bottom:.5rem}
+.website-card-info p{max-width:29rem;color:var(--muted);font-size:.91rem}
+.preview-open{flex:none;display:inline-flex;align-items:center;gap:.65rem;padding:.65rem .85rem;border:1px solid var(--line-strong);border-radius:999px;background:transparent;font-size:.8rem;font-weight:600;transition:all .25s}
+.preview-open span{color:var(--lime);font-size:1rem}
+.preview-open:hover{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.preview-open:hover span{color:var(--ink)}
+.studio-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.6rem;padding:1.2rem 0}
+.studio-bottom>span{display:flex;align-items:center;gap:.6rem;color:var(--muted);font-size:.9rem}
+.studio-bottom>span i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+
+/* Mock website 01: warm editorial cafe */
+.preview-cafe{background:radial-gradient(ellipse at 70% 50%,#725139 0%,transparent 50%),#e8dfd0;color:#2c281f}
+.cafe-site{position:relative;min-height:320px;margin:0 auto;max-width:900px;background:#eee7da;overflow:hidden;box-shadow:0 20px 45px #0003}
+.cafe-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.3rem;border-bottom:1px solid #cfc4b1;font-size:.62rem;letter-spacing:.08em}
+.cafe-nav strong{font-size:1rem;letter-spacing:-.05em}.cafe-nav strong span{color:#a35c37;font-size:.6em;vertical-align:top}
+.cafe-nav>span{font-size:.55rem;color:#62594d}
+.cafe-nav button{border:0;background:#343c2a;color:#fff8e9;border-radius:2px;padding:.65rem .8rem;font-size:.58rem}
+.cafe-hero{display:grid;grid-template-columns:1fr .9fr;min-height:240px;padding:1.7rem 1.6rem 1rem;gap:1rem}
+.cafe-hero small{font-size:.57rem;letter-spacing:.15em;color:#80664a}
+.cafe-hero h3{font-family:Georgia,serif;font-size:clamp(2rem,5vw,4.3rem);line-height:.92;font-weight:400;letter-spacing:-.065em;margin:.65rem 0}
+.cafe-hero p{font-size:.72rem;line-height:1.5;color:#665b4e}
+.mock-cta{display:inline-block;margin-top:1rem;padding:.6rem .8rem;background:#34402e;color:#fff9eb;font-size:.63rem}
+.cafe-art{position:relative;min-height:180px;background:linear-gradient(145deg,#c5a17a,#77543c 58%,#40362b);overflow:hidden;border-radius:48% 48% 5px 5px}
+.coffee-cup{position:absolute;width:45%;height:38%;left:27%;top:29%;border-radius:8% 8% 30% 30%;background:linear-gradient(90deg,#f0dfc3,#fff2d8 45%,#d3b795);box-shadow:10px 16px 24px #25180f70;transform:rotate(-8deg)}
+.coffee-cup:before{content:"";position:absolute;width:32%;height:44%;right:-25%;top:10%;border:8px solid #e5d2b6;border-left:0;border-radius:0 50% 50% 0}
+.coffee-cup:after{content:"";position:absolute;left:0;right:0;top:-7%;height:15%;border-radius:50%;background:#3a2114;border:3px solid #e5d2b6}
+.coffee-cup i{position:absolute;left:30%;top:35%;width:40%;height:2px;background:#a78865;transform:rotate(20deg)}
+.coffee-bean{position:absolute;width:20px;height:32px;background:#43281a;border-radius:50%;box-shadow:inset 4px 0 #805038}
+.bean-one{right:15%;top:18%;transform:rotate(32deg)}.bean-two{left:16%;bottom:16%;transform:rotate(-38deg)}
+.cafe-art em{position:absolute;bottom:1rem;right:1rem;color:#f4e5d0;font-size:.55rem;letter-spacing:.18em;font-style:normal;text-align:right}
+.cafe-bottom{display:flex;justify-content:space-between;padding:.7rem 1.3rem;border-top:1px solid #cfc4b1;font-size:.55rem;letter-spacing:.1em}
+
+/* Mock website 02: editorial ecommerce */
+.preview-shop{background:#e4e4dd;color:#171914}
+.shop-site{position:relative;min-height:250px;background:#f4f3ed;overflow:hidden}
+.shop-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:1px solid #d6d7ce;font-size:.55rem;letter-spacing:.08em}
+.shop-nav strong{font-size:.95rem;letter-spacing:-.07em}.shop-nav strong span{color:#e07d53}
+.shop-nav small{color:#77796f}
+.shop-banner{position:relative;min-height:195px;padding:1.25rem;background:#e6e7dd;overflow:hidden}
+.shop-banner>small{font-size:.5rem;letter-spacing:.14em}
+.shop-banner h3{position:relative;z-index:1;font:400 clamp(2rem,4vw,3rem)/.88 Georgia,serif;letter-spacing:-.06em;margin:.8rem 0}
+.shop-banner>span{position:relative;z-index:1;display:inline-block;border-bottom:1px solid #222;font-size:.6rem;padding-bottom:.25rem}
+.shop-product{position:absolute;right:16%;top:14%;width:95px;height:130px;box-shadow:12px 20px 24px #0002}
+.product-vase{background:linear-gradient(90deg,#ad8c72,#d3b49a 45%,#876b55);border-radius:35% 35% 20% 20%;transform:rotate(8deg)}
+.product-vase:before{content:"";position:absolute;left:35%;top:-16%;width:30%;height:24%;background:#c3a187;border-radius:3px 3px 0 0}
+.product-lamp{right:5%;top:25%;width:65px;height:95px;background:linear-gradient(90deg,#c0a879,#f1dbad 55%,#8e7a51);clip-path:polygon(40% 0,60% 0,60% 65%,100% 65%,100% 75%,60% 75%,60% 100%,40% 100%,40% 75%,0 75%,0 65%,40% 65%);opacity:.9}
+.shop-foot{display:flex;justify-content:space-between;padding:.8rem 1rem;font-size:.5rem;letter-spacing:.1em}
+
+/* Mock website 03: professional service */
+.preview-service{background:#b7c6bb;color:#17241e}
+.service-site{min-height:250px;background:#f2f4ed;overflow:hidden}
+.service-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:1px solid #d7ded7;font-size:.53rem}
+.service-nav strong{font-size:.9rem;letter-spacing:-.06em}.service-nav strong span{color:#6c8a6f}
+.service-nav small{color:#737e75}
+.service-nav>b{padding:.55rem .65rem;background:#233b30;color:white;font-size:.5rem}
+.service-hero{padding:1.6rem 1.3rem 1.3rem;background:radial-gradient(circle at 90% 30%,#cbd8c7,transparent 40%)}
+.service-hero>small{font-size:.5rem;letter-spacing:.15em;color:#68776c}
+.service-hero h3{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.075em;margin:.7rem 0}
+.service-hero h3 i{font-family:Georgia,serif;font-weight:400;color:#68826b}
+.service-hero p{max-width:270px;color:#59685e;font-size:.65rem}
+.service-hero>span{display:inline-block;margin-top:1rem;padding:.65rem .8rem;background:#b9ff66;color:#17241e;font-size:.58rem;font-weight:700}
+.service-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d7ded7}
+.service-stats div{padding:.75rem 1rem;border-right:1px solid #d7ded7}.service-stats b{display:block;font-size:1rem}.service-stats small{font-size:.55rem;color:#667369}
+
+/* Mock website 04: creative portfolio */
+.preview-portfolio{background:#302c48;color:#f4f0ff}
+.portfolio-site{min-height:250px;background:#f3f0fa;color:#242035;overflow:hidden}
+.portfolio-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:1px solid #ddd7e8;font-size:.52rem}
+.portfolio-nav strong{font-size:.95rem;letter-spacing:-.08em}.portfolio-nav strong span{color:#8271e7}
+.portfolio-nav small{color:#77718a}
+.portfolio-nav b{font-size:.5rem}
+.portfolio-hero{position:relative;padding:1.4rem 1.3rem 1rem;min-height:185px;overflow:hidden;background:#dcd4ff}
+.portfolio-hero>small{font-size:.5rem;letter-spacing:.12em}
+.portfolio-hero h3{position:relative;z-index:1;font-size:clamp(2.1rem,4.8vw,3.6rem);line-height:.87;letter-spacing:-.08em;margin:.7rem 0}
+.portfolio-hero h3 span{color:#6a54c6}
+.portfolio-hero p{position:relative;z-index:1;font-size:.62rem;color:#57506d}
+.portfolio-orb{position:absolute;width:145px;height:145px;right:5%;top:10%;border-radius:42% 58% 65% 35%;background:linear-gradient(135deg,#ff9e86,#8d79e9 55%,#28204d);transform:rotate(25deg);box-shadow:inset -15px -15px 25px #34256840;animation:orb-float 7s ease-in-out infinite}
+@keyframes orb-float{50%{transform:rotate(8deg) translateY(-7px) scale(1.04)}}
+.portfolio-tiles{display:flex;justify-content:space-between;padding:.8rem 1rem;font-size:.5rem;letter-spacing:.06em}
+
+/* Mock website 05: dashboard */
+.preview-dashboard{background:#c7d5c7;color:#1d2c24}
+.dash-site{display:grid;grid-template-columns:115px 1fr;min-height:250px;background:#f8faf7;overflow:hidden}
+.dash-site aside{display:flex;flex-direction:column;gap:.55rem;padding:.85rem .6rem;background:#172b22;color:#bdc9c0;font-size:.5rem}
+.dash-site aside strong{font-size:.65rem;color:white;margin-bottom:.6rem}
+.dash-site aside small{margin-top:.7rem;font-size:.45rem;color:#7f9b89}
+.dash-nav-active{padding:.5rem;border-radius:5px;background:#2e4939;color:#d8ffb1}
+.dash-main{min-width:0;padding:.9rem;background:#f8faf7}
+.dash-top{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.dash-top small{font-size:.45rem;color:#758077}
+.dash-top h3{font-size:.95rem;letter-spacing:-.05em;margin-top:.35rem}
+.dash-avatar{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#c8ff3e;font-size:.65rem;font-weight:800}
+.dash-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.8rem 0}
+.dash-metrics>div{display:grid;gap:.2rem;padding:.55rem;border:1px solid #e0e6df;border-radius:7px;background:white}
+.dash-metrics small{font-size:.48rem;color:#69776c}.dash-metrics b{font-size:1.1rem}.dash-metrics i{font-size:.48rem;color:#47805a;font-style:normal}
+.dash-chart{padding:.6rem;border:1px solid #e0e6df;border-radius:7px;background:white}
+.dash-chart>div:first-child{display:flex;justify-content:space-between;font-size:.55rem}.dash-chart small{font-size:.42rem;color:#758077}
+.chart-bars{height:55px;display:flex;align-items:end;gap:6px;padding-top:.5rem}
+.chart-bars i{flex:1;height:var(--h);border-radius:3px 3px 0 0;background:linear-gradient(#b9ff66,#6fa54c);animation:bars-rise .9s both;transform-origin:bottom}
+.chart-bars i:nth-child(2){animation-delay:.08s}.chart-bars i:nth-child(3){animation-delay:.16s}.chart-bars i:nth-child(4){animation-delay:.24s}.chart-bars i:nth-child(5){animation-delay:.32s}.chart-bars i:nth-child(6){animation-delay:.4s}.chart-bars i:nth-child(7){animation-delay:.48s}
+@keyframes bars-rise{from{transform:scaleY(.05)}to{transform:scaleY(1)}}
+.dash-task{display:flex;gap:.4rem;align-items:center;margin-top:.55rem;padding:.5rem;border-radius:6px;background:#edf3e9;font-size:.52rem}
+.dash-task>span{color:#77a94d}.dash-task small{margin-left:auto;font-size:.42rem;color:#5f765d}
+
+/* Modal */
+.design-modal{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:1.2rem;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.design-modal.open{opacity:1;visibility:visible}
+.design-modal-backdrop{position:absolute;inset:0;background:rgba(3,5,4,.82);backdrop-filter:blur(12px)}
+.design-modal-panel{position:relative;z-index:1;width:min(100%,900px);max-height:min(90vh,900px);overflow:auto;padding:clamp(1.2rem,3vw,2rem);border:1px solid var(--line-strong);border-radius:24px;background:#111512;box-shadow:0 30px 100px #000b;transform:translateY(14px) scale(.985);transition:transform .3s var(--ease)}
+.design-modal.open .design-modal-panel{transform:none}
+.design-modal-close{position:absolute;right:1rem;top:1rem;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-strong);background:var(--surface-2);font-size:1.7rem;line-height:1}
+.design-modal-kicker{color:var(--lime);font-size:.68rem;font-weight:700;letter-spacing:.13em;padding-right:3rem}
+.design-modal-panel h2{font-size:clamp(1.8rem,4vw,3rem);margin:.7rem 0}
+.design-modal-panel>p{color:var(--muted);margin-bottom:1.3rem}
+.design-modal-preview{border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.design-modal-preview .website-preview{min-height:400px}
+.design-modal-preview .cafe-site{min-height:400px}
+.design-modal-preview .cafe-hero{min-height:300px}
+.design-modal-preview .cafe-art{min-height:260px}
+.design-modal-preview .shop-site,.design-modal-preview .service-site,.design-modal-preview .portfolio-site{min-height:350px}
+.design-modal-preview .shop-banner{min-height:290px}
+.design-modal-preview .service-hero{padding:2.5rem}
+.design-modal-preview .portfolio-hero{min-height:280px;padding:2rem}
+.design-modal-preview .dash-site{min-height:350px}
+.design-modal-preview .dash-main{padding:1.5rem}
+.design-modal-preview .dash-chart .chart-bars{height:100px}
+.design-modal-actions{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.2rem}
+.design-modal-actions>span{color:var(--muted);font-size:.8rem}
+body.modal-open{overflow:hidden}
+@media (max-width:760px){
+ .studio-top{display:block}.studio-note{display:none}
+ .website-grid{grid-template-columns:1fr}
+ .website-featured{grid-column:auto}
+ .website-preview,.website-featured .website-preview{min-height:270px}
+ .website-card-info{display:block}.preview-open{margin-top:1rem}
+ .studio-bottom{align-items:flex-start;flex-direction:column}
+ .design-modal-preview .website-preview{min-height:280px}
+ .design-modal-preview .cafe-hero{min-height:220px}
+ .design-modal-preview .cafe-art{min-height:180px}
+ .design-modal-preview .shop-site,.design-modal-preview .service-site,.design-modal-preview .portfolio-site{min-height:270px}
+ .design-modal-actions{align-items:flex-start;flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+ .portfolio-orb,.chart-bars i{animation:none!important}
+ .website-card,.design-modal-panel{transition:none}
+}
+
+
+/* ======================= DEDICATED QR & NFC SECTION ======================= */
+.qr-nfc-section{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(200,255,62,.025),transparent 38%,rgba(200,255,62,.025));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qr-nfc-heading{display:flex;align-items:center;justify-content:space-between;gap:3rem}
+.qr-nfc-heading .section-head{max-width:53rem;margin-bottom:0}
+.qr-nfc-orbit{position:relative;flex:none;width:190px;height:190px;display:grid;place-items:center}
+.qr-nfc-orbit .orbit{position:absolute;border:1px solid rgba(200,255,62,.28);border-radius:50%;inset:8px;animation:qrOrbit 18s linear infinite}
+.qr-nfc-orbit .orbit-two{inset:28px;border-style:dashed;animation-direction:reverse;animation-duration:24s}
+.orbit-core{position:relative;z-index:1;width:88px;height:88px;border-radius:25px;background:var(--lime);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 55px rgba(200,255,62,.15);transform:rotate(-7deg)}
+.orbit-core span{font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-.1em}
+.orbit-core small{font-size:.48rem;font-weight:800;letter-spacing:.1em}
+.orbit-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 16px var(--lime)}
+.dot-one{top:16px;left:54px}.dot-two{right:8px;top:94px;width:7px;height:7px}.dot-three{bottom:20px;left:44px;width:6px;height:6px}
+.qr-nfc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:3rem}
+.qr-nfc-card{min-width:0;padding:1.15rem;border:1px solid var(--line);border-radius:24px;background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:transform .35s,border-color .35s,box-shadow .35s;overflow:hidden}
+.qr-nfc-card:hover{transform:translateY(-7px);border-color:rgba(200,255,62,.42);box-shadow:0 24px 60px rgba(0,0,0,.22)}
+.qr-nfc-card-top{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:1rem}
+.qr-nfc-index{font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--lime)}
+.qr-nfc-badge{font-size:.68rem;padding:.4rem .6rem;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.qr-menu-visual,.nfc-review-visual,.smart-links-visual{height:250px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:17px;margin-bottom:1.4rem;background:#181b16}
+.qr-menu-visual{background:radial-gradient(ellipse at 50% 35%,#5c472c 0,transparent 50%),linear-gradient(135deg,#24251e,#10120f)}
+.table-shadow{position:absolute;left:9%;right:9%;bottom:37px;height:19px;background:rgba(0,0,0,.45);filter:blur(12px);border-radius:50%}
+.menu-tent{position:absolute;left:50%;top:24px;transform:translateX(-50%) perspective(500px) rotateY(-7deg);width:142px;height:173px;background:#e9e1cd;box-shadow:0 18px 28px #0007;clip-path:polygon(0 0,100% 0,100% 100%,0 87%);color:#263021}
+.menu-tent-front{height:100%;padding:12px 10px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.mini-brand{font-size:.48rem;font-weight:900;letter-spacing:.14em}
+.menu-food-art{position:relative;width:65px;height:46px;margin:9px 0 7px;border-radius:50%;background:#c9b89a;border:5px solid #faf3e2;box-shadow:0 2px 0 #a59a80}
+.menu-food-art i,.menu-food-art b,.menu-food-art em{position:absolute;display:block;border-radius:50%}
+.menu-food-art i{inset:6px 9px;background:#a95132}.menu-food-art b{width:15px;height:13px;top:7px;left:13px;background:#e8bd63}.menu-food-art em{width:11px;height:9px;bottom:6px;right:10px;background:#4c6c3c}
+.menu-tent-front strong{font-family:var(--display);font-size:.9rem;line-height:1.05;letter-spacing:-.04em}
+.mini-qr{position:relative;width:30px;height:30px;margin:8px auto 3px;background-color:#fff;background-image:linear-gradient(90deg,#222 25%,transparent 25%,transparent 50%,#222 50%,#222 75%,transparent 75%),linear-gradient(#222 25%,transparent 25%,transparent 50%,#222 50%,#222 75%,transparent 75%);background-size:9px 9px;border:3px solid white;box-shadow:0 0 0 1px #aaa}
+.mini-qr:before,.mini-qr:after{content:"";position:absolute;width:8px;height:8px;border:2px solid #222;background:#fff;top:0;left:0;box-shadow:13px 0 0 -2px #fff,13px 0 0 0 #222,0 13px 0 -2px #fff,0 13px 0 0 #222}
+.mini-qr i{position:absolute;inset:4px;background:#222}
+.menu-tent-front small{font-size:.38rem;font-weight:900;letter-spacing:.08em}
+.visual-caption{position:absolute;bottom:12px;left:14px;right:14px;display:flex;justify-content:space-between;gap:.5rem;font-size:.55rem;font-weight:800;letter-spacing:.08em;color:#ffffffa8}
+.visual-caption span{color:var(--lime)}
+.nfc-review-visual{background:radial-gradient(ellipse at 50% 40%,rgba(200,255,62,.15),transparent 53%),linear-gradient(140deg,#18221a,#10120f)}
+.review-glow{position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(200,255,62,.09);filter:blur(20px);top:18px;left:calc(50% - 85px)}
+.review-stand{position:absolute;left:50%;top:23px;transform:translateX(-50%);width:137px;height:174px;perspective:400px;filter:drop-shadow(0 14px 13px #0007)}
+.review-stand-top{height:157px;border:1px solid #d8e3c7;border-radius:13px;background:linear-gradient(145deg,#f6f8ed,#cbd7b9);color:#172016;display:flex;align-items:center;flex-direction:column;padding:12px 8px;transform:rotateY(-5deg)}
+.nfc-symbol{height:34px;width:34px;position:relative;display:grid;place-items:center;margin:12px 0 4px}
+.nfc-symbol i{position:absolute;width:25px;height:25px;border:2px solid #405d31;border-left-color:transparent;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(180deg)}
+.nfc-symbol i:nth-child(2){width:18px;height:18px}.nfc-symbol i:nth-child(3){width:10px;height:10px}
+.nfc-symbol b{width:5px;height:5px;border-radius:50%;background:#405d31}
+.review-stand-top strong{font-family:var(--display);font-size:1.03rem;line-height:1.05;text-align:center;letter-spacing:-.05em}
+.review-stars{color:#719b3d;letter-spacing:.12em;font-size:.85rem;margin-top:6px}
+.tap-here{font-size:.43rem;letter-spacing:.08em;font-weight:900;margin-top:5px}
+.review-stand-base{height:16px;width:120px;margin:-1px auto 0;background:linear-gradient(#d6dfc8,#7f8c73);clip-path:polygon(9% 0,91% 0,100% 100%,0 100%)}
+.tap-wave{position:absolute;top:55px;left:calc(50% + 44px);width:36px;height:36px;border:1px solid var(--lime);border-radius:50%;opacity:0;animation:tapWave 2.8s ease-out infinite}
+.wave-two{animation-delay:1.4s}
+.smart-links-visual{background:radial-gradient(ellipse at 50% 30%,#29372b,transparent 62%),#131713}
+.smart-profile{position:absolute;top:18px;left:calc(50% - 90px);width:180px;padding:0 11px 10px;background:#f0f2e8;color:#1a2118;border-radius:14px;box-shadow:0 14px 30px #0006;overflow:hidden;transform:rotate(-3deg)}
+.profile-cover{height:35px;margin:0 -11px;background:linear-gradient(120deg,#a9d65a,#527e36)}
+.profile-avatar{width:31px;height:31px;margin-top:-16px;position:relative;border:3px solid #f0f2e8;border-radius:10px;background:#192219;color:var(--lime);display:grid;place-items:center;font-size:.55rem;font-weight:900}
+.smart-profile>strong{display:block;font-size:.75rem;margin-top:4px}.smart-profile>small{font-size:.55rem;color:#697061}
+.profile-link{display:flex;align-items:center;gap:7px;margin-top:6px;padding:6px 7px;border:1px solid #dce1d4;border-radius:6px;font-size:.55rem;font-weight:700}
+.profile-link span{color:#557b35}.profile-link b{margin-left:auto}
+.smart-qr{position:absolute;right:calc(50% - 123px);bottom:33px;padding:8px 8px 5px;background:#fff;border-radius:8px;transform:rotate(7deg);box-shadow:0 8px 20px #0005}
+.mini-qr.large{width:42px;height:42px;background-size:12px 12px}
+.smart-qr>span{display:block;text-align:center;font-size:.38rem;color:#20261d;font-weight:900;margin-top:3px}
+.qr-nfc-card h3{font-family:var(--display);font-size:1.45rem;letter-spacing:-.04em;margin:0 0 .65rem}
+.qr-nfc-card>p{font-size:.92rem;line-height:1.7;color:var(--muted);margin:0 0 1rem}
+.qr-nfc-points{display:grid;gap:.55rem;padding:0;margin:0 0 1.3rem;list-style:none}
+.qr-nfc-points li{position:relative;padding-left:1.25rem;font-size:.82rem;color:var(--muted)}
+.qr-nfc-points li:before{content:"✓";position:absolute;left:0;color:var(--lime);font-weight:900}
+.qr-nfc-link{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.9rem;font-weight:700;color:var(--text)}
+.qr-nfc-link span{color:var(--lime);font-size:1.15rem;transition:transform .25s}
+.qr-nfc-link:hover span{transform:translate(3px,-3px)}
+.qr-nfc-bottom{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:1.4rem;padding:1.3rem 1.5rem;border:1px solid rgba(200,255,62,.22);border-radius:20px;background:linear-gradient(100deg,rgba(200,255,62,.07),rgba(200,255,62,.015))}
+.qr-nfc-bottom>div{display:flex;align-items:center;gap:1rem}
+.qr-nfc-bottom-icon{width:45px;height:45px;display:grid;place-items:center;flex:none;background:var(--lime);color:var(--ink);border-radius:14px;font-size:1.5rem}
+.qr-nfc-bottom p{margin:0;line-height:1.6}.qr-nfc-bottom p strong{font-size:.95rem}.qr-nfc-bottom p span{font-size:.83rem;color:var(--muted)}
+@keyframes qrOrbit{to{transform:rotate(360deg)}}
+@keyframes tapWave{0%{transform:scale(.65);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+@media(max-width:900px){.qr-nfc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.qr-nfc-card:last-child{grid-column:1/-1}.qr-nfc-heading{gap:1rem}.qr-nfc-orbit{width:145px;height:145px}.orbit-core{width:70px;height:70px}}
+@media(max-width:620px){.qr-nfc-heading{align-items:flex-start}.qr-nfc-orbit{width:85px;height:85px;flex:none;margin-top:1rem}.qr-nfc-orbit .orbit{inset:0}.qr-nfc-orbit .orbit-two{inset:12px}.orbit-core{width:49px;height:49px;border-radius:15px}.orbit-core span{font-size:1.25rem}.orbit-core small{font-size:.34rem}.orbit-dot{width:6px;height:6px}.qr-nfc-grid{grid-template-columns:1fr;margin-top:2rem}.qr-nfc-card:last-child{grid-column:auto}.qr-menu-visual,.nfc-review-visual,.smart-links-visual{height:260px}.qr-nfc-bottom{align-items:stretch;flex-direction:column}.qr-nfc-bottom>div{align-items:flex-start}.qr-nfc-bottom .btn{width:100%;justify-content:center}}
+
+
+/* Website + QR/NFC integration section */
+.integration-section{position:relative;overflow:hidden;background:radial-gradient(ellipse at 82% 8%,rgba(200,255,62,.075),transparent 34%),var(--ink);border-top:1px solid rgba(255,255,255,.055);border-bottom:1px solid rgba(255,255,255,.055)}
+.integration-section:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.integration-section>.container{position:relative;z-index:1}
+.integration-intro{max-width:850px;margin:0 0 2.5rem}
+.integration-intro .eyebrow{display:inline-flex;align-items:center;gap:.65rem;color:var(--lime);font-size:.76rem;font-weight:850;letter-spacing:.15em;margin-bottom:1.1rem}
+.integration-intro .eyebrow-dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px rgba(200,255,62,.65)}
+.integration-intro h2{font-family:var(--display);font-size:clamp(2.15rem,4.6vw,4.4rem);line-height:1.04;letter-spacing:-.055em;margin:0 0 1.15rem;max-width:950px}
+.integration-intro h2 .lime{color:var(--lime)}
+.integration-intro>p{max-width:780px;color:var(--muted);font-size:1.04rem;line-height:1.8;margin:0}
+.integration-workbench{border:1px solid rgba(200,255,62,.2);border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012));padding:1.5rem;box-shadow:0 24px 80px rgba(0,0,0,.18)}
+.integration-workbench-head,.integration-workbench-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.68rem;font-weight:800;letter-spacing:.12em}
+.integration-workbench-head{padding-bottom:1.2rem;border-bottom:1px solid var(--line)}
+.integration-workbench-head>span:first-child{display:flex;align-items:center;gap:.6rem;color:var(--text)}
+.integration-workbench-head>span:first-child i,.integration-live b{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px #c8ff3e80}
+.integration-live{display:flex;align-items:center;gap:.5rem;color:var(--lime)}
+.integration-flow{display:grid;grid-template-columns:minmax(0,1fr) 74px minmax(0,1fr) 74px minmax(0,1fr);align-items:stretch;gap:.75rem;padding:1.5rem 0}
+.integration-node{min-width:0;padding:1rem;border:1px solid var(--line);border-radius:17px;background:rgba(8,10,8,.48);display:flex;flex-direction:column;align-items:flex-start}
+.integration-node-icon{height:165px;width:100%;display:grid;place-items:center;margin-bottom:1rem;overflow:hidden;border-radius:12px;background:radial-gradient(ellipse,rgba(200,255,62,.08),transparent 70%)}
+.integration-step{font-size:.62rem;line-height:1.5;letter-spacing:.09em;color:var(--lime);font-weight:800;margin-bottom:.45rem}
+.integration-node h3{font-family:var(--display);font-size:1.08rem;letter-spacing:-.025em;line-height:1.25;margin:0 0 .5rem}
+.integration-node p{font-size:.81rem;line-height:1.65;color:var(--muted);margin:0}
+.integration-connector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:var(--lime);font-size:.58rem;letter-spacing:.08em;font-weight:850;text-align:center}
+.integration-connector i{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(200,255,62,.3);border-radius:50%;font-size:1.35rem;font-style:normal;background:rgba(200,255,62,.06)}
+.physical-card{width:112px;height:140px;border:1px solid rgba(200,255,62,.45);border-radius:12px;background:linear-gradient(145deg,#252b20,#10130f);box-shadow:0 16px 30px #0005;display:flex;flex-direction:column;justify-content:space-between;padding:13px;transform:rotate(-5deg);color:var(--text)}
+.physical-card>span{font-size:.7rem;font-weight:900}.physical-card>b{align-self:flex-end;color:var(--lime);font-size:1.3rem}.physical-card>i{width:40px;height:40px;border:5px solid var(--lime);border-right-color:transparent;border-radius:50%;align-self:center;position:relative}.physical-card>i:after{content:"";position:absolute;inset:7px;border:2px solid var(--lime);border-radius:50%}.physical-card>small{font-size:.48rem;letter-spacing:.08em;text-align:center}
+.integration-browser{width:min(100%,190px);border:1px solid #454a40;border-radius:9px;overflow:hidden;background:#f5f6ef;color:#1a2017;box-shadow:0 15px 30px #0004;transform:rotate(2deg)}
+.integration-browser-bar{height:23px;background:#e4e8dd;display:flex;align-items:center;gap:4px;padding:0 7px}.integration-browser-bar>i{width:5px;height:5px;border-radius:50%;background:#9ca395}.integration-browser-bar>span{font-size:.48rem;color:#687060;margin-left:5px;white-space:nowrap}
+.integration-browser-body{padding:13px 12px}.integration-browser-logo{font-size:1rem;line-height:.98;font-weight:950;letter-spacing:-.05em}.integration-browser-logo span{font-size:.5rem;vertical-align:top;color:#617d2b}.integration-browser-lines{display:grid;gap:5px;margin:12px 0}.integration-browser-lines i{height:4px;border-radius:4px;background:#d7dccf}.integration-browser-lines i:nth-child(2){width:75%}.integration-browser-lines i:nth-child(3){width:55%}.integration-browser-button{display:inline-block;background:#c8ff3e;border-radius:4px;padding:5px 9px;font-size:.5rem;font-weight:850}
+.integration-action-stack{position:relative;width:175px;max-width:100%;padding:18px 12px 16px 49px;border:1px solid rgba(200,255,62,.3);border-radius:12px;background:#171c14;box-shadow:0 15px 30px #0004}.integration-action-stack>span{position:absolute;left:12px;top:18px;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--lime);color:#111;font-weight:950}.integration-action-stack>b{display:block;font-size:.7rem}.integration-action-stack>small{display:block;margin-top:6px;color:var(--muted);font-size:.58rem}.integration-action-stack>i{position:absolute;right:10px;bottom:10px;color:var(--lime);font-style:normal}
+.integration-workbench-foot{padding-top:1rem;border-top:1px solid var(--line);font-size:.61rem}.integration-workbench-foot span:first-child{color:var(--lime)}
+.integration-examples{margin-top:4rem}.integration-examples-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.3rem}.integration-examples-heading .eyebrow{color:var(--lime);font-size:.7rem;letter-spacing:.13em;font-weight:850}.integration-examples-heading h3{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.045em;margin:.45rem 0 0}.integration-examples-heading>p{max-width:390px;color:var(--muted);font-size:.88rem;line-height:1.65;margin:0}
+.integration-example-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}.integration-example{display:flex;align-items:center;gap:.8rem;text-align:left;min-width:0;padding:1rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);color:var(--text);cursor:pointer;transition:border-color .2s,background .2s,transform .2s}.integration-example:hover,.integration-example.active{border-color:rgba(200,255,62,.55);background:rgba(200,255,62,.07);transform:translateY(-2px)}.integration-example-icon{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(200,255,62,.1);color:var(--lime);font-size:1.2rem}.integration-example>span:nth-child(2){display:grid;gap:.35rem;min-width:0}.integration-example b{font-size:.78rem}.integration-example small{color:var(--muted);font-size:.67rem;line-height:1.45}.integration-example-arrow{margin-left:auto;color:var(--lime);flex:none}
+.integration-example-result{display:grid;grid-template-columns:minmax(220px,.75fr) 1.25fr;gap:clamp(1.5rem,5vw,5rem);align-items:center;margin-top:1rem;padding:2rem;border:1px solid var(--line);border-radius:22px;background:linear-gradient(110deg,rgba(200,255,62,.055),rgba(255,255,255,.018))}.integration-result-visual{position:relative;display:grid;place-items:center;min-height:270px;overflow:hidden;border-radius:15px;background:radial-gradient(ellipse,rgba(200,255,62,.13),transparent 67%)}.integration-result-phone{width:142px;height:250px;border:5px solid #333a2e;border-radius:25px;background:#0c0f0b;padding:8px;box-shadow:0 18px 40px #0006;transform:rotate(-4deg)}.integration-result-notch{height:9px;width:48px;margin:0 auto 9px;border-radius:0 0 8px 8px;background:#333a2e}.integration-result-screen{height:calc(100% - 18px);border-radius:13px;background:#f1f3e9;color:#20251c;padding:13px 9px;display:flex;flex-direction:column;align-items:flex-start;overflow:hidden}.integration-result-tag{font-size:.43rem;letter-spacing:.1em;font-weight:900;color:#657a36}.integration-result-screen strong{font-size:.85rem;line-height:1.1;margin-top:9px;letter-spacing:-.03em}.integration-result-food{width:100%;height:82px;border-radius:8px;margin:10px 0;background:linear-gradient(135deg,#d5dfb7,#82975c);position:relative}.integration-result-food:after{content:"";position:absolute;inset:15px 23px;border:5px solid #f8f5dd;border-radius:50%;background:radial-gradient(circle,#b86c36 0 18%,#638244 20% 45%,#d6b56d 47%)}.integration-result-cta{margin-top:auto;padding:7px 9px;border-radius:5px;background:#c8ff3e;color:#151a10;font-size:.5rem;font-weight:900}.integration-result-orbit{position:absolute;right:18%;top:20%;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(200,255,62,.45);border-radius:50%;color:var(--lime);animation:qrOrbit 12s linear infinite}.integration-result-copy{max-width:560px}.integration-result-kicker{font-size:.68rem;letter-spacing:.13em;font-weight:850;color:var(--lime)}.integration-result-copy h4{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.35rem);letter-spacing:-.045em;line-height:1.15;margin:.75rem 0}.integration-result-copy p{font-size:.92rem;line-height:1.8;color:var(--muted);margin:0 0 1.3rem}.integration-result-copy .btn{display:inline-flex}
+.integration-final{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:1.3rem;padding:1.4rem 1.5rem;border:1px solid rgba(200,255,62,.25);border-radius:18px;background:rgba(200,255,62,.045)}.integration-final>div{display:flex;align-items:center;gap:1rem}.integration-final-mark{flex:none;display:grid;place-items:center;width:47px;height:47px;border-radius:14px;background:var(--lime);color:#14180f;font-weight:950}.integration-final-mark span{font-size:.7rem}.integration-final p{margin:0;line-height:1.6}.integration-final p strong{font-size:.92rem}.integration-final p>span{font-size:.8rem;color:var(--muted)}.integration-final>.btn{flex:none}
+@media(max-width:1000px){.integration-flow{grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);row-gap:1rem}.integration-flow .integration-connector:nth-of-type(4){display:none}.integration-flow .integration-action{grid-column:3}.integration-flow .integration-connector:nth-of-type(2){grid-column:2;grid-row:1}.integration-flow .integration-destination{grid-column:3;grid-row:1}.integration-flow .integration-action{grid-row:2}.integration-flow .integration-connector:nth-of-type(4){display:flex;grid-column:2;grid-row:2;transform:rotate(90deg)}.integration-example-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.integration-intro h2{font-size:clamp(2rem,9vw,3rem)}.integration-workbench{padding:1rem;border-radius:18px}.integration-workbench-head{font-size:.57rem}.integration-flow{grid-template-columns:1fr;gap:.65rem}.integration-node{padding:.9rem}.integration-node-icon{height:130px}.integration-flow .integration-connector,.integration-flow .integration-connector:nth-of-type(2),.integration-flow .integration-connector:nth-of-type(4){grid-column:1;grid-row:auto;transform:none;flex-direction:row;padding:.15rem 0}.integration-flow .integration-connector i{transform:rotate(90deg);width:30px;height:30px}.integration-flow .integration-destination,.integration-flow .integration-action{grid-column:1;grid-row:auto}.integration-workbench-foot{font-size:.53rem}.integration-examples{margin-top:2.8rem}.integration-examples-heading{display:block}.integration-examples-heading>p{margin-top:.8rem}.integration-example-grid{grid-template-columns:1fr}.integration-example-result{grid-template-columns:1fr;padding:1rem;gap:1rem}.integration-result-visual{min-height:260px}.integration-result-copy{padding:.4rem}.integration-final{align-items:stretch;flex-direction:column;padding:1rem}.integration-final>div{align-items:flex-start}.integration-final>.btn{width:100%;justify-content:center}}
+
+
+/* Alignment refinement for the existing-website integration section */
+#website-plus-products{padding-block:clamp(4rem,7vw,7rem);}
+#website-plus-products>.container{width:min(100% - 48px,1240px);margin-inline:auto;}
+#website-plus-products .integration-intro{max-width:900px;margin:0 auto 2.5rem;text-align:left;}
+#website-plus-products .integration-intro h2{max-width:900px;margin:0 0 1rem;}
+#website-plus-products .integration-intro>p{max-width:820px;margin:0;}
+#website-plus-products .integration-workbench{width:100%;box-sizing:border-box;}
+#website-plus-products .integration-flow{display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr) 54px minmax(0,1fr);align-items:stretch;gap:1rem;}
+#website-plus-products .integration-node{height:100%;box-sizing:border-box;}
+#website-plus-products .integration-node-icon{flex:0 0 150px;}
+#website-plus-products .integration-node h3{min-height:2.6em;}
+#website-plus-products .integration-node p{max-width:34ch;}
+#website-plus-products .integration-workbench-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+#website-plus-products .integration-examples{margin-top:3rem;}
+#website-plus-products .integration-examples-heading{align-items:end;}
+#website-plus-products .integration-example-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:1rem;}
+#website-plus-products .integration-example{height:100%;box-sizing:border-box;}
+#website-plus-products .integration-example-result{box-sizing:border-box;}
+#website-plus-products .integration-final{box-sizing:border-box;}
+@media(max-width:1000px){
+ #website-plus-products .integration-flow{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);gap:.75rem;}
+ #website-plus-products .integration-flow .integration-connector:nth-of-type(4){display:flex;grid-column:2;grid-row:2;transform:rotate(90deg);}
+ #website-plus-products .integration-flow .integration-action{grid-column:3;grid-row:2;}
+ #website-plus-products .integration-example-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:640px){
+ #website-plus-products>.container{width:calc(100% - 32px);}
+ #website-plus-products .integration-intro{margin-bottom:1.75rem;}
+ #website-plus-products .integration-flow{grid-template-columns:minmax(0,1fr);}
+ #website-plus-products .integration-flow .integration-node,
+ #website-plus-products .integration-flow .integration-destination,
+ #website-plus-products .integration-flow .integration-action{grid-column:1;grid-row:auto;}
+ #website-plus-products .integration-flow .integration-connector,
+ #website-plus-products .integration-flow .integration-connector:nth-of-type(2),
+ #website-plus-products .integration-flow .integration-connector:nth-of-type(4){grid-column:1;grid-row:auto;transform:none;flex-direction:row;}
+ #website-plus-products .integration-node h3{min-height:0;}
+ #website-plus-products .integration-workbench-foot{align-items:flex-start;flex-direction:column;}
+ #website-plus-products .integration-example-grid{grid-template-columns:minmax(0,1fr);}
+ #website-plus-products .integration-examples-heading{display:block;}
+ #website-plus-products .integration-examples-heading>p{margin-top:.75rem;}
+ #website-plus-products .integration-final{align-items:stretch;flex-direction:column;}
+ #website-plus-products .integration-final>.btn{width:100%;justify-content:center;}
+}
+
 </style>
 </head>
 
@@ -785,7 +1129,10 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
     </button>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
       <a href="#home">Home</a>
-      <a href="#solutions">Solutions</a>
+      <a href="#website-studio">Website Designs</a>
+      <a href="#qr-nfc">QR &amp; NFC</a>
+      <a href="#website-plus-products">Connect Your Website</a>
+      <a href="#solutions">Services</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="btn btn-primary btn-sm">Get Started <span class="arrow" aria-hidden="true">↗</span></a>
@@ -799,16 +1146,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <h1>Turn <span class="lime">Every Tap</span> Into an Opportunity.</h1>
-      <p class="hero-sub">Smart QR and NFC experiences for modern businesses. Help customers discover your menu, connect with your brand, and leave reviews with a simple tap.</p>
+      <h1>Websites That Make People <span class="lime">Stop Scrolling.</span></h1>
+      <p class="hero-sub">We design and build standout websites for businesses—then help you maintain, improve, and grow them with custom web apps, business software, and ongoing technical support.</p>
       <div class="hero-cta">
-        <a href="#solutions" class="btn btn-primary">Explore Solutions <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#website-studio" class="btn btn-primary">Explore Website Designs <span class="arrow" aria-hidden="true">→</span></a>
         <a href="#contact" class="btn btn-ghost">Let's Talk <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
       <ul class="hero-tags" aria-label="Highlights">
-        <li>Tap. Connect. Grow.</li>
-        <li>QR + NFC Technology</li>
-        <li>Built for Local Businesses</li>
+        <li>Distinctive Website Design</li>
+        <li>Responsive Development</li>
+        <li>Support Beyond Launch</li>
       </ul>
     </div>
 
@@ -873,56 +1220,343 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
   </div>
 </section>
 
+
+<!-- ======================= WEBSITE DESIGN STUDIO ======================= -->
+<section class="section web-studio" id="website-studio" aria-labelledby="studio-title">
+  <div class="container">
+    <div class="studio-top reveal">
+      <div class="section-head">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> THE SAFETAP WEB STUDIO</span>
+        <h2 id="studio-title">Your website should feel like <span class="lime">your brand.</span></h2>
+        <p>Explore sample website concepts we can customise for your business. Choose a style, open a live preview, and imagine your brand in it.</p>
+      </div>
+      <div class="studio-note"><span class="studio-note-icon">↗</span><span>Sample concepts<br><b>Made to customise</b></span></div>
+    </div>
+
+    <div class="studio-toolbar reveal" role="group" aria-label="Filter website concepts">
+      <button class="studio-filter active" type="button" data-filter="all" aria-pressed="true">All designs <span>05</span></button>
+      <button class="studio-filter" type="button" data-filter="food" aria-pressed="false">Food &amp; cafés</button>
+      <button class="studio-filter" type="button" data-filter="shop" aria-pressed="false">Online store</button>
+      <button class="studio-filter" type="button" data-filter="service" aria-pressed="false">Business services</button>
+      <button class="studio-filter" type="button" data-filter="portfolio" aria-pressed="false">Portfolio</button>
+    </div>
+
+    <div class="website-grid" id="websiteGrid">
+      <!-- Café design -->
+      <article class="website-card website-featured reveal" data-category="food" data-design="cafe">
+        <div class="website-preview preview-cafe">
+          <div class="preview-browser"><span></span><span></span><span></span><small>morrow.cafe</small><b>↗</b></div>
+          <div class="cafe-site">
+            <div class="cafe-nav"><strong>MORROW<span>®</span></strong><span>MENU　 STORY　 VISIT</span><button type="button" tabindex="-1">Book a table ↗</button></div>
+            <div class="cafe-hero">
+              <div><small>COFFEE · SLOW MORNINGS</small><h3>A little pause<br>in your day.</h3><p>Thoughtful coffee. Fresh bakes.<br>Your new favourite corner.</p><span class="mock-cta">Explore the menu ↗</span></div>
+              <div class="cafe-art"><div class="coffee-cup"><i></i></div><span class="coffee-bean bean-one"></span><span class="coffee-bean bean-two"></span><em>FRESHLY<br>BREWED</em></div>
+            </div>
+            <div class="cafe-bottom"><span>01 / GOOD COFFEE</span><span>MADE FOR YOUR EVERYDAY ↗</span></div>
+          </div>
+          <span class="preview-label">01 / HOSPITALITY</span>
+        </div>
+        <div class="website-card-info"><div><span class="project-type">RESTAURANTS · CAFÉS · BAKERIES</span><h3>The warm &amp; editorial look</h3><p>For brands that want a memorable atmosphere before the first visit.</p></div><button class="preview-open" type="button" data-open-design="cafe" aria-label="Open café website preview">Explore design <span>↗</span></button></div>
+      </article>
+
+      <!-- Ecommerce design -->
+      <article class="website-card reveal" data-category="shop" data-design="shop" style="--d:.08s">
+        <div class="website-preview preview-shop">
+          <div class="preview-browser"><span></span><span></span><span></span><small>formandfield.store</small><b>↗</b></div>
+          <div class="shop-site">
+            <div class="shop-nav"><strong>FORM<span>&</span>FIELD</strong><small>OBJECTS FOR EVERYDAY</small><b> BAG (02)</b></div>
+            <div class="shop-banner"><small>THE EVERYDAY EDIT — VOL. 04</small><h3>Less, but<br>better.</h3><span>Shop the collection ↗</span><div class="shop-product product-vase"></div><div class="shop-product product-lamp"></div></div>
+            <div class="shop-foot"><span>DESIGNED TO LAST</span><span>VIEW ALL OBJECTS ↗</span></div>
+          </div>
+          <span class="preview-label">02 / COMMERCE</span>
+        </div>
+        <div class="website-card-info"><div><span class="project-type">RETAIL · E-COMMERCE</span><h3>The modern storefront</h3><p>A product-first design that makes browsing feel effortless.</p></div><button class="preview-open" type="button" data-open-design="shop">Explore design <span>↗</span></button></div>
+      </article>
+
+      <!-- Professional services -->
+      <article class="website-card reveal" data-category="service" data-design="service" style="--d:.12s">
+        <div class="website-preview preview-service">
+          <div class="preview-browser"><span></span><span></span><span></span><small>northstar.studio</small><b>↗</b></div>
+          <div class="service-site">
+            <div class="service-nav"><strong>NORTHSTAR<span>.</span></strong><small>STRATEGY　 DESIGN　 ABOUT</small><b>LET'S TALK ↗</b></div>
+            <div class="service-hero"><small>INDEPENDENT DIGITAL PARTNER</small><h3>Good work.<br><i>Clear thinking.</i></h3><p>We help ambitious teams turn complex ideas into meaningful experiences.</p><span>Start a conversation ↗</span></div>
+            <div class="service-stats"><div><b>01</b><small>Strategy</small></div><div><b>02</b><small>Design</small></div><div><b>03</b><small>Delivery</small></div></div>
+          </div>
+          <span class="preview-label">03 / SERVICES</span>
+        </div>
+        <div class="website-card-info"><div><span class="project-type">CONSULTANTS · LOCAL SERVICES</span><h3>The confident professional</h3><p>Clear messaging and polished design that builds trust.</p></div><button class="preview-open" type="button" data-open-design="service">Explore design <span>↗</span></button></div>
+      </article>
+
+      <!-- Portfolio design -->
+      <article class="website-card reveal" data-category="portfolio" data-design="portfolio" style="--d:.16s">
+        <div class="website-preview preview-portfolio">
+          <div class="preview-browser"><span></span><span></span><span></span><small>jules.design</small><b>↗</b></div>
+          <div class="portfolio-site">
+            <div class="portfolio-nav"><strong>JULES<span>®</span></strong><small>DESIGNER &amp; CREATIVE DEVELOPER</small><b>LET'S CONNECT ↗</b></div>
+            <div class="portfolio-hero"><small>SELECTED WORK / 2024—26</small><h3>Ideas into<br><span>interfaces.</span></h3><div class="portfolio-orb"></div><p>Digital experiences with a little more feeling.</p></div>
+            <div class="portfolio-tiles"><span>01 — BRAND SYSTEMS</span><span>02 — DIGITAL PRODUCTS</span></div>
+          </div>
+          <span class="preview-label">04 / PORTFOLIO</span>
+        </div>
+        <div class="website-card-info"><div><span class="project-type">CREATORS · FREELANCERS</span><h3>The expressive portfolio</h3><p>Showcase your work with motion, personality, and a strong point of view.</p></div><button class="preview-open" type="button" data-open-design="portfolio">Explore design <span>↗</span></button></div>
+      </article>
+
+      <!-- Dashboard / app design -->
+      <article class="website-card reveal" data-category="service" data-design="dashboard" style="--d:.2s">
+        <div class="website-preview preview-dashboard">
+          <div class="preview-browser"><span></span><span></span><span></span><small>flowdesk.app</small><b>↗</b></div>
+          <div class="dash-site">
+            <aside><strong>◈ flowdesk</strong><span class="dash-nav-active">▦ Overview</span><span>▤ Projects</span><span>◷ Schedule</span><span>⚙ Settings</span><small>WORKSPACE</small><span>＋ Invite team</span></aside>
+            <div class="dash-main"><div class="dash-top"><div><small>MONDAY, OCTOBER 13</small><h3>Good morning, Alex ✦</h3></div><span class="dash-avatar">A</span></div><div class="dash-metrics"><div><small>Active projects</small><b>08</b><i>↗ On track</i></div><div><small>Tasks completed</small><b>64%</b><i>↗ This month</i></div></div><div class="dash-chart"><div><b>Project activity</b><small>LAST 7 DAYS</small></div><div class="chart-bars"><i style="--h:38%"></i><i style="--h:56%"></i><i style="--h:44%"></i><i style="--h:78%"></i><i style="--h:62%"></i><i style="--h:91%"></i><i style="--h:72%"></i></div></div><div class="dash-task"><span>●</span> Website refresh <small>IN PROGRESS</small></div></div>
+          </div>
+          <span class="preview-label">05 / WEB APP</span>
+        </div>
+        <div class="website-card-info"><div><span class="project-type">DASHBOARDS · WEB APPLICATIONS</span><h3>The product-style interface</h3><p>Clean, useful interfaces for internal tools and customer portals.</p></div><button class="preview-open" type="button" data-open-design="dashboard">Explore design <span>↗</span></button></div>
+      </article>
+    </div>
+
+    <div class="studio-bottom reveal"><span><i></i> Every concept can be tailored to your brand, content, and goals.</span><a href="#contact" class="btn btn-primary">Create My Website <span class="arrow" aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<!-- Website concept preview modal -->
+<div class="design-modal" id="designModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="designModalTitle">
+  <div class="design-modal-backdrop" data-close-design></div>
+  <div class="design-modal-panel" role="document">
+    <button type="button" class="design-modal-close" data-close-design aria-label="Close preview">×</button>
+    <div class="design-modal-kicker">SAFETAP WEBSITE STUDIO / CONCEPT PREVIEW</div>
+    <h2 id="designModalTitle">Website concept</h2>
+    <p id="designModalDesc">A sample design concept that can be customised for your business.</p>
+    <div class="design-modal-preview" id="designModalPreview"></div>
+    <div class="design-modal-actions"><span>Sample concept — not a live client website.</span><a class="btn btn-primary" href="#contact" id="designModalCta">Build something like this ↗</a></div>
+  </div>
+</div>
+
+
+<!-- ======================= QR & NFC DIGITAL EXPERIENCES ======================= -->
+<section class="section qr-nfc-section" id="qr-nfc" aria-labelledby="qr-nfc-title">
+  <div class="container">
+    <div class="qr-nfc-heading reveal">
+      <div class="section-head">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> TAP. SCAN. CONNECT.</span>
+        <h2 id="qr-nfc-title">Make every table, product, and visit <span class="lime">more connected.</span></h2>
+        <p>Simple QR and NFC experiences that help customers reach your menu, leave a review, view your links, or discover your business in seconds.</p>
+      </div>
+      <div class="qr-nfc-orbit" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="orbit-core"><span>ST</span><small>TAP / SCAN</small></div>
+        <i class="orbit-dot dot-one"></i><i class="orbit-dot dot-two"></i><i class="orbit-dot dot-three"></i>
+      </div>
+    </div>
+
+    <div class="qr-nfc-grid">
+      <article class="qr-nfc-card qr-menu-card reveal">
+        <div class="qr-nfc-card-top"><span class="qr-nfc-index">01 / QR</span><span class="qr-nfc-badge">For hospitality</span></div>
+        <div class="qr-menu-visual" aria-label="Illustration of a QR menu on a restaurant table">
+          <div class="table-shadow"></div>
+          <div class="menu-tent">
+            <div class="menu-tent-front">
+              <span class="mini-brand">YOUR BRAND</span>
+              <div class="menu-food-art"><i></i><b></b><em></em></div>
+              <strong>Good food.<br>Easy ordering.</strong>
+              <div class="mini-qr" aria-hidden="true"><i></i></div>
+              <small>SCAN TO VIEW MENU</small>
+            </div>
+          </div>
+          <div class="visual-caption">TABLE 04 <span>READY TO SCAN ↗</span></div>
+        </div>
+        <h3>QR Digital Menus</h3>
+        <p>Let customers scan a code at their table to open your digital menu, offers, or ordering page—without needing a printed menu every time.</p>
+        <ul class="qr-nfc-points"><li>Table-wise QR codes</li><li>Mobile-friendly menu pages</li><li>Easy access to offers and contact details</li></ul>
+        <a class="qr-nfc-link" href="#contact" data-interest="QR Digital Menu">Create a QR menu <span>↗</span></a>
+      </article>
+
+      <article class="qr-nfc-card qr-review-card reveal" style="--d:.1s">
+        <div class="qr-nfc-card-top"><span class="qr-nfc-index">02 / NFC</span><span class="qr-nfc-badge">For customer feedback</span></div>
+        <div class="nfc-review-visual" aria-label="Illustration of a tap-to-review NFC stand">
+          <div class="review-glow"></div>
+          <div class="review-stand">
+            <div class="review-stand-top"><span class="mini-brand">YOUR BRAND</span><div class="nfc-symbol"><i></i><i></i><i></i><b></b></div><strong>Love your<br>experience?</strong><div class="review-stars">★★★★★</div><span class="tap-here">TAP YOUR PHONE HERE</span></div>
+            <div class="review-stand-base"></div>
+          </div>
+          <div class="tap-wave wave-one"></div><div class="tap-wave wave-two"></div>
+          <div class="visual-caption">ONE TAP <span>REVIEW PAGE OPENS ↗</span></div>
+        </div>
+        <h3>NFC Tap-to-Review Stands</h3>
+        <p>Give happy customers a simple way to reach your review page by tapping a compatible phone on an NFC stand or card.</p>
+        <ul class="qr-nfc-points"><li>Tap-to-open review links</li><li>Branded stands and cards</li><li>Useful for cafés, salons, shops, and clinics</li></ul>
+        <a class="qr-nfc-link" href="#contact" data-interest="NFC Tap-to-Review">Set up tap-to-review <span>↗</span></a>
+      </article>
+
+      <article class="qr-nfc-card qr-connect-card reveal" style="--d:.2s">
+        <div class="qr-nfc-card-top"><span class="qr-nfc-index">03 / SMART LINKS</span><span class="qr-nfc-badge">For every business</span></div>
+        <div class="smart-links-visual" aria-label="Illustration of a digital business profile with QR and NFC access">
+          <div class="smart-profile">
+            <div class="profile-cover"></div><div class="profile-avatar">ST</div>
+            <strong>Your Business</strong><small>Everything in one place</small>
+            <div class="profile-link"><span>◎</span> Instagram <b>↗</b></div>
+            <div class="profile-link"><span>✆</span> Contact us <b>↗</b></div>
+            <div class="profile-link"><span>⌖</span> Find our location <b>↗</b></div>
+          </div>
+          <div class="smart-qr"><div class="mini-qr large" aria-hidden="true"><i></i></div><span>SCAN OR TAP</span></div>
+          <div class="visual-caption">ONE LINK <span>MORE WAYS TO CONNECT ↗</span></div>
+        </div>
+        <h3>QR &amp; NFC Smart Links</h3>
+        <p>Connect customers to your business profile, contact details, social pages, location, product information, or booking page from one convenient touchpoint.</p>
+        <ul class="qr-nfc-points"><li>Digital business profiles</li><li>Contact, social, and location links</li><li>QR codes and NFC tag setup</li></ul>
+        <a class="qr-nfc-link" href="#contact" data-interest="QR and NFC Smart Links">Build my smart link <span>↗</span></a>
+      </article>
+    </div>
+
+    <div class="qr-nfc-bottom reveal">
+      <div><span class="qr-nfc-bottom-icon">↗</span><p><strong>One small scan. A smoother customer experience.</strong><br><span>Tell us what you want customers to access—we'll help shape the right QR/NFC setup.</span></p></div>
+      <a href="#contact" class="btn btn-primary" data-interest="QR/NFC Digital Solutions">Plan My QR/NFC Setup <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================= WEBSITE + QR/NFC INTEGRATION ======================= -->
+<section class="section integration-section" id="website-plus-products" aria-labelledby="integration-title">
+  <div class="container">
+    <div class="integration-intro reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> INTEGRATE WITH WHAT YOU ALREADY HAVE</span>
+      <h2 id="integration-title">Already have a website?<br><span class="lime">Let’s connect it to our QR/NFC products.</span></h2>
+      <p>You don’t need a new website. If your business already has one, SafeTap can connect our QR codes, NFC cards, stands, and product tags to the pages you already use—so customers can scan or tap and go straight to your menu, booking page, product details, review link, or any page on your site.</p>
+    </div>
+
+    <div class="integration-workbench reveal">
+      <div class="integration-workbench-head">
+        <span><i></i> HOW IT CONNECTS</span>
+        <span class="integration-live"><b></b> EXISTING WEBSITE + PRODUCT</span>
+      </div>
+      <div class="integration-flow">
+        <div class="integration-node integration-physical">
+          <div class="integration-node-icon">
+            <div class="physical-card"><span>SafeTap</span><b>↗</b><i></i><small>TAP OR SCAN</small></div>
+          </div>
+          <small class="integration-step">01 / PHYSICAL TOUCHPOINT</small>
+          <h3>Your QR or NFC product</h3>
+          <p>A table stand, sticker, card, product label, or counter display.</p>
+        </div>
+        <div class="integration-connector"><span>SCAN / TAP</span><i>→</i></div>
+        <div class="integration-node integration-destination">
+          <div class="integration-node-icon">
+            <div class="integration-browser">
+              <div class="integration-browser-bar"><i></i><i></i><i></i><span>yourbrand.com</span></div>
+              <div class="integration-browser-body"><div class="integration-browser-logo">YOUR<br>BRAND<span>®</span></div><div class="integration-browser-lines"><i></i><i></i><i></i></div><div class="integration-browser-button">Explore ↗</div></div>
+            </div>
+          </div>
+          <small class="integration-step">02 / YOUR EXISTING WEBSITE</small>
+          <h3>Your existing website</h3>
+          <p>Your current menu, booking form, product page, catalogue, or any page on your existing site.</p>
+        </div>
+        <div class="integration-connector"><span>TAKE ACTION</span><i>→</i></div>
+        <div class="integration-node integration-action">
+          <div class="integration-node-icon">
+            <div class="integration-action-stack"><span>✓</span><b>Customer action</b><small>Enquiry received</small><i>↗</i></div>
+          </div>
+          <small class="integration-step">03 / BUSINESS RESULT</small>
+          <h3>A useful next step</h3>
+          <p>Help customers order, book, contact you, find your shop, or leave feedback.</p>
+        </div>
+      </div>
+      <div class="integration-workbench-foot"><span>DESIGNED AROUND YOUR BUSINESS</span><span>ONE BRAND · CONNECTED TOUCHPOINTS · MOBILE-FRIENDLY</span></div>
+    </div>
+
+    <div class="integration-examples">
+      <div class="integration-examples-heading reveal">
+        <div><span class="eyebrow">MADE FOR EVERYDAY BUSINESS</span><h3>What could we connect for you?</h3></div>
+        <p>Choose an example to see how we connect a SafeTap QR/NFC product to a website you already own.</p>
+      </div>
+      <div class="integration-example-grid">
+        <button class="integration-example active reveal" type="button" data-integration="cafe" aria-pressed="true">
+          <span class="integration-example-icon">☕</span><span><b>Cafés &amp; restaurants</b><small>Table QR → Your existing menu page</small></span><span class="integration-example-arrow">↗</span>
+        </button>
+        <button class="integration-example reveal" type="button" data-integration="reviews" aria-pressed="false">
+          <span class="integration-example-icon">★</span><span><b>Local businesses</b><small>NFC stand → Your review link</small></span><span class="integration-example-arrow">↗</span>
+        </button>
+        <button class="integration-example reveal" type="button" data-integration="retail" aria-pressed="false">
+          <span class="integration-example-icon">▣</span><span><b>Shops &amp; products</b><small>QR label → Your product page</small></span><span class="integration-example-arrow">↗</span>
+        </button>
+        <button class="integration-example reveal" type="button" data-integration="booking" aria-pressed="false">
+          <span class="integration-example-icon">◷</span><span><b>Salons &amp; services</b><small>NFC card → Your booking page</small></span><span class="integration-example-arrow">↗</span>
+        </button>
+      </div>
+      <div class="integration-example-result reveal" aria-live="polite" aria-atomic="true">
+        <div class="integration-result-visual"><div class="integration-result-phone"><div class="integration-result-notch"></div><div class="integration-result-screen" id="integrationResultScreen"><span class="integration-result-tag">DIGITAL MENU</span><strong>A menu worth<br>coming back for.</strong><div class="integration-result-food"></div><span class="integration-result-cta">View menu ↗</span></div></div><div class="integration-result-orbit">↗</div></div>
+        <div class="integration-result-copy"><span class="integration-result-kicker" id="integrationResultKicker">EXAMPLE 01 / HOSPITALITY</span><h4 id="integrationResultTitle">A scan takes guests straight to your menu.</h4><p id="integrationResultDesc">Place a unique QR code on each table. Guests scan it to see your mobile-friendly menu, specials, and contact details—while your brand stays front and centre.</p><a href="#contact" class="btn btn-primary" id="integrationResultCta" data-interest="Connect Existing Website to QR/NFC Products">Connect my website <span class="arrow">↗</span></a></div>
+      </div>
+    </div>
+
+    <div class="integration-final reveal"><div><span class="integration-final-mark">ST<span>↗</span></span><p><strong>Keep your website. Add a smarter way to reach it.</strong><br><span>We connect SafeTap QR/NFC products to your existing pages—without needing to rebuild your website.</span></p></div><a href="#contact" class="btn btn-primary" data-interest="Connect Existing Website to QR/NFC Products">Connect My Existing Website <span class="arrow">↗</span></a></div>
+  </div>
+</section>
+
 <!-- ======================= SOLUTIONS ======================= -->
 <section class="section" id="solutions">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Small Interactions. Big Possibilities.</h2>
-      <p>Everything your business needs to create a smoother digital customer experience.</p>
+      <h2>Build It. Improve It. Keep It Running.</h2>
+      <p>From your first website to ongoing technical support and custom software, we help your business make the most of technology.</p>
     </div>
 
     <div class="cards">
-      <article class="card c1 reveal">
-        <div class="card-vis" aria-hidden="true">
-          <div class="mq"><svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg><i class="scan"></i></div><div class="mini-menu"><i></i><i></i><i></i><i></i></div>
-        </div>
-        <h3>Smart Digital Menus</h3>
-        <p>Give customers instant access to your menu through QR codes or NFC-enabled table tags.</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mobile-friendly menus</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Table-specific QR codes</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Optional ordering links</li>
-        </ul>
-        <a href="#contact" class="card-link" data-interest="QR/NFC Digital Menu">Explore Digital Menus <span aria-hidden="true">→</span></a>
-      </article>
-
-      <article class="card c2 reveal" style="--d:.1s">
-        <div class="card-vis" aria-hidden="true">
-          <span class="pulse-ring"></span><span class="pulse-ring"></span>
-          <div class="star-row"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        </div>
-        <h3>Instant Review Connections</h3>
-        <p>Make it easier for happy customers to discover your Google review page using a simple tap or scan.</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>NFC review stands</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>QR alternatives</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Custom branding</li>
-        </ul>
-        <a href="#contact" class="card-link" data-interest="NFC Review Stand">Explore Review Stands <span aria-hidden="true">→</span></a>
-      </article>
-
-      <article class="card c3 reveal" style="--d:.2s">
+      <article class="card c3 reveal">
         <div class="card-vis" aria-hidden="true">
           <div class="mini-browser"><div class="bar"><b></b><b></b><b></b></div><div class="page"><i class="h"></i><i></i><i class="s"></i><i></i><i class="h"></i><i class="s"></i><i></i></div></div>
         </div>
-        <h3>Business Websites</h3>
-        <p>Give your business a professional online presence with a fast, modern landing page.</p>
+        <h3>Website Development</h3>
+        <p>Launch a polished online presence with a responsive website designed around your business and goals.</p>
         <ul>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mobile-first design</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>WhatsApp contact</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Location and business information</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Business websites and landing pages</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Portfolio and e-commerce sites</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Redesigns and new features</li>
         </ul>
-        <a href="#contact" class="card-link" data-interest="Business Landing Page">Build Your Website <span aria-hidden="true">→</span></a>
+        <a href="#contact" class="card-link" data-interest="Website Development">Build My Website <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card c1 reveal" style="--d:.1s">
+        <div class="card-vis" aria-hidden="true">
+          <div class="mini-browser"><div class="bar"><b></b><b></b><b></b></div><div class="page"><i class="h"></i><i></i><i class="s"></i><i></i><i class="h"></i><i class="s"></i><i></i></div></div>
+        </div>
+        <h3>Website Maintenance &amp; Support</h3>
+        <p>Keep your website useful and up to date with help for fixes, content changes, and ongoing improvements.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bug fixes and troubleshooting</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Content updates and new pages</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Responsive and performance improvements</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="Website Maintenance & Support">Get Website Support <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card c2 reveal" style="--d:.2s">
+        <div class="card-vis" aria-hidden="true">
+          <span class="pulse-ring"></span><span class="pulse-ring"></span>
+          <div class="star-row"><svg><use href="#i-bolt"/></svg><svg><use href="#i-grow"/></svg><svg><use href="#i-browser"/></svg></div>
+        </div>
+        <h3>Custom Software &amp; Web Apps</h3>
+        <p>Turn your workflow into a practical digital tool, from dashboards and booking systems to custom business software.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Admin dashboards and portals</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Inventory, orders, and bookings</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Business tools, integrations, and ERP</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="Custom Web Application / Business Software">Discuss My Software <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card c3 reveal" style="--d:.3s">
+        <div class="card-vis" aria-hidden="true">
+          <div class="mq"><svg class="deco-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg><i class="scan"></i></div><div class="mini-menu"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <h3>QR &amp; NFC Digital Solutions</h3>
+        <p>Connect physical experiences to digital tools with simple QR and NFC experiences for customers.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Digital menus and table QR codes</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>NFC review stands and digital cards</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Customer links and enquiry flows</li>
+        </ul>
+        <a href="#contact" class="card-link" data-interest="QR/NFC Digital Solutions">Explore QR &amp; NFC <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </div>
@@ -933,8 +1567,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
   <div class="container demo">
     <div class="reveal">
       <div class="section-head" style="margin-bottom:0">
-        <h2>See How One Tap Changes Everything.</h2>
-        <p>Pick an experience and watch the phone change.</p>
+        <h2>Explore Digital Experiences in Action.</h2>
+        <p>Try interactive examples of the digital tools SafeTap can build for your business.</p>
       </div>
 
       <div class="demo-tabs" role="tablist" aria-label="Demo experiences">
@@ -952,7 +1586,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
         </button>
       </div>
 
-      <p class="demo-note"><svg aria-hidden="true"><use href="#i-info"/></svg><span><b>Demonstration only.</b> The businesses, items and prices shown are made-up samples. Nothing here connects to a real business, Google, or NFC hardware.</span></p>
+      <p class="demo-note"><svg aria-hidden="true"><use href="#i-info"/></svg><span><b>Demonstration only.</b> The businesses, items, and prices shown are sample content. The examples illustrate possible digital experiences and do not connect to a live business, Google, or NFC hardware.</span></p>
     </div>
 
     <div class="demo-stage reveal" style="--d:.15s">
@@ -1014,25 +1648,25 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 <section class="section" id="how-it-works">
   <div class="container">
     <div class="section-head reveal">
-      <h2>From Physical to Digital in Three Simple Steps.</h2>
+      <h2>From Business Challenge to Digital Solution.</h2>
     </div>
 
     <div class="steps" id="steps" role="list">
       <div class="track" aria-hidden="true"><i></i></div>
       <div role="listitem" class="step reveal">
         <div class="num" aria-hidden="true">01</div>
-        <h3>Choose Your Solution</h3>
-        <p>Tell us about your business and the experience you want to create.</p>
+        <h3>Tell Us What You Need</h3>
+        <p>Share your goals, the issue you need fixed, or the workflow you want to improve.</p>
       </div>
       <div role="listitem" class="step reveal" style="--d:.2s">
         <div class="num" aria-hidden="true">02</div>
-        <h3>We Set It Up</h3>
-        <p>We create your digital menu, website, QR codes, or branded NFC solution.</p>
+        <h3>We Build or Improve It</h3>
+        <p>We design, develop, fix, or enhance a solution around your requirements.</p>
       </div>
       <div role="listitem" class="step reveal" style="--d:.4s">
         <div class="num" aria-hidden="true">03</div>
-        <h3>Go Live</h3>
-        <p>Place your QR codes or NFC products where customers can easily discover them.</p>
+        <h3>Keep Moving Forward</h3>
+        <p>Launch your solution and come back to SafeTap for agreed updates, fixes, and improvements.</p>
       </div>
     </div>
   </div>
@@ -1042,14 +1676,14 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 <section class="section" id="why">
   <div class="container why">
     <div class="section-head reveal">
-      <h2>Technology Should Feel Effortless.</h2>
-      <p>Why businesses choose SafeTap: simple for customers, simple for you.</p>
+      <h2>Technology Should Work for Your Business.</h2>
+      <p>Practical digital solutions, clear communication, and support that can continue after launch.</p>
     </div>
     <div class="benefits">
-      <div class="benefit reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-touch"/></svg></div><h3>Easy to Use</h3><p>Simple interactions customers already understand.</p></div>
-      <div class="benefit reveal" style="--d:.08s"><div class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Made for Mobile</h3><p>Designed to work smoothly on smartphones.</p></div>
-      <div class="benefit reveal" style="--d:.16s"><div class="ic"><svg aria-hidden="true"><use href="#i-palette"/></svg></div><h3>Your Brand, Your Way</h3><p>Custom colours, logos, and layouts.</p></div>
-      <div class="benefit reveal" style="--d:.24s"><div class="ic"><svg aria-hidden="true"><use href="#i-grow"/></svg></div><h3>Built to Grow</h3><p>Start with one solution and expand as your business grows.</p></div>
+      <div class="benefit reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-touch"/></svg></div><h3>Business-First</h3><p>Solutions shaped around your goals and everyday workflows.</p></div>
+      <div class="benefit reveal" style="--d:.08s"><div class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><h3>Mobile-Ready</h3><p>Responsive experiences built for phones, tablets, and desktops.</p></div>
+      <div class="benefit reveal" style="--d:.16s"><div class="ic"><svg aria-hidden="true"><use href="#i-palette"/></svg></div><h3>Built Around You</h3><p>Custom design, features, and integrations based on your requirements.</p></div>
+      <div class="benefit reveal" style="--d:.24s"><div class="ic"><svg aria-hidden="true"><use href="#i-grow"/></svg></div><h3>Support Beyond Launch</h3><p>Get help with agreed updates, fixes, and improvements as your needs evolve.</p></div>
     </div>
   </div>
 </section>
@@ -1149,8 +1783,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 <section class="cta" aria-labelledby="cta-title">
   <div class="container">
     <div class="cta-box reveal">
-      <h2 id="cta-title">Ready to Make Your Business Tap-Ready?</h2>
-      <p>Let's build a smarter customer experience for your business.</p>
+      <h2 id="cta-title">Ready for Your Next Digital Upgrade?</h2>
+      <p>Let's build, improve, or support the technology your business needs.</p>
       <div class="cta-actions">
         <a href="#contact" class="btn btn-dark">Start Your Project</a>
         <button type="button" class="btn btn-outline-dark" id="waBtn">Chat on WhatsApp</button>
@@ -1165,8 +1799,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
   <div class="container contact">
     <div class="contact-info reveal">
       <div class="section-head" style="margin-bottom:0">
-        <h2>Tell us what you're building.</h2>
-        <p>Share a few details and we'll get back to you about the right setup for your business.</p>
+        <h2>Tell us what your business needs.</h2>
+        <p>Launching a website, fixing an issue, planning an application, or looking for ongoing support? Tell us a little about it.</p>
       </div>
       <ul>
         <li><svg aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:safetap2026@gmail.com">safetap2026@gmail.com</a></li>
@@ -1199,11 +1833,12 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
         <label for="f-type">Business type <span class="req" aria-hidden="true">*</span></label>
         <select id="f-type" name="business_type" required>
           <option value="">Select one</option>
-          <option>Café</option>
-          <option>Restaurant</option>
-          <option>Bakery</option>
-          <option>Dessert shop</option>
-          <option>Other hospitality business</option>
+          <option>Startup</option>
+          <option>Retail or e-commerce</option>
+          <option>Restaurant or café</option>
+          <option>Professional services</option>
+          <option>Education</option>
+          <option>Other small or medium business</option>
         </select>
         <span class="err" id="e-type"></span>
       </div>
@@ -1211,10 +1846,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
         <label for="f-interest">Interested in <span class="req" aria-hidden="true">*</span></label>
         <select id="f-interest" name="interested_in" required>
           <option value="">Select one</option>
-          <option>QR/NFC Digital Menu</option>
-          <option>NFC Review Stand</option>
-          <option>Business Landing Page</option>
+          <option>Website Development</option>
+          <option>Website Maintenance &amp; Support</option>
+          <option>Website Fixes or Redesign</option>
+          <option>Custom Web Application / Business Software</option>
+          <option>ERP or Business Management System</option>
+          <option>E-commerce Website</option>
+          <option>QR/NFC Digital Solutions</option>
+          <option>Hosting or Deployment Assistance</option>
           <option>Complete Digital Setup</option>
+          <option>Other Digital Service</option>
         </select>
         <span class="err" id="e-interest"></span>
       </div>
@@ -1239,14 +1880,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
     <div class="f-grid">
       <div class="f-brand">
         <a href="#home" class="logo"><svg aria-hidden="true"><use href="#i-logo"/></svg>SafeTap</a>
-        <p>Simple, smart QR and NFC solutions that help hospitality businesses connect with their customers.</p>
-        <p class="f-tag">Tap Into Better Experiences.</p>
+        <p>We design and build standout websites, maintain them, and create useful digital tools for growing businesses.</p>
+        <p class="f-tag">We Build. We Maintain. We Grow With You.</p>
       </div>
       <nav aria-label="Footer navigation">
         <h4>Navigate</h4>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#qr-nfc">QR &amp; NFC</a></li>
+          <li><a href="#website-plus-products">Connect Your Website</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1254,10 +1897,10 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
       <nav aria-label="Footer solutions">
         <h4>Solutions</h4>
         <ul>
-          <li><a href="#solutions">Digital Menus</a></li>
-          <li><a href="#solutions">Review Stands</a></li>
-          <li><a href="#solutions">Business Websites</a></li>
-          <li><a href="#solutions">Table QR Solutions</a></li>
+          <li><a href="#solutions">Website Development</a></li>
+          <li><a href="#solutions">Website Support</a></li>
+          <li><a href="#solutions">Custom Web Applications</a></li>
+          <li><a href="#qr-nfc">QR/NFC Solutions</a></li>
         </ul>
       </nav>
       <div>
@@ -1294,7 +1937,7 @@ const SAFETAP_CONFIG = {
   // WhatsApp number in international format, digits only (91 = India).
   // Leave empty to disable: the button will then send visitors to the form instead.
   whatsappNumber: "919789971911",
-  whatsappMessage: "Hi SafeTap, I'd like to know more about your QR/NFC solutions.",
+  whatsappMessage: "Hi SafeTap, I would like to discuss a website, software, or digital support project.",
 
   // Form endpoint. Examples:
   //   Formspree: "https://formspree.io/f/yourFormId"
@@ -1397,7 +2040,7 @@ $$(".card").forEach(card => {
 /* card CTAs preselect the matching enquiry option */
 $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
   const sel = $("#f-interest");
-  [...sel.options].forEach(o => { if (o.text === a.dataset.interest) sel.value = o.value || o.text; });
+  [...sel.options].forEach(o => { if (o.text.trim() === a.dataset.interest) sel.value = o.value || o.text; });
 }));
 
 /* ---------- interactive demo ---------- */
@@ -1704,6 +2347,162 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
 
 /* ---------- placeholder social links ---------- */
 $$("[data-placeholder]").forEach(a => a.addEventListener("click", e => e.preventDefault()));
+
+/* ---------- Website Studio: filters + live concept preview modal ---------- */
+(function(){
+  const grid = document.querySelector("#websiteGrid");
+  const filters = [...document.querySelectorAll(".studio-filter")];
+  const cards = [...document.querySelectorAll(".website-card")];
+  const modal = document.querySelector("#designModal");
+  const modalTitle = document.querySelector("#designModalTitle");
+  const modalDesc = document.querySelector("#designModalDesc");
+  const modalPreview = document.querySelector("#designModalPreview");
+  const modalCta = document.querySelector("#designModalCta");
+  if (!grid || !modal) return;
+
+  const concepts = {
+    cafe: {
+      title: "Warm & editorial café website",
+      desc: "A warm, story-led design concept for cafés, restaurants, bakeries, and hospitality brands.",
+      category: "food"
+    },
+    shop: {
+      title: "Modern e-commerce storefront",
+      desc: "A product-focused storefront concept for retail brands and online businesses.",
+      category: "shop"
+    },
+    service: {
+      title: "Confident professional website",
+      desc: "A clear, premium layout for consultants, studios, and service businesses.",
+      category: "service"
+    },
+    portfolio: {
+      title: "Expressive creative portfolio",
+      desc: "A bold portfolio concept for designers, freelancers, creators, and personal brands.",
+      category: "portfolio"
+    },
+    dashboard: {
+      title: "Product-style web application",
+      desc: "A dashboard concept for custom web apps, internal tools, and customer portals.",
+      category: "service"
+    }
+  };
+
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filters.forEach(item => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+      cards.forEach(card => {
+        card.hidden = !(filter === "all" || card.dataset.category === filter);
+      });
+    });
+  });
+
+  let lastFocused = null;
+  function openPreview(key) {
+    const concept = concepts[key];
+    const card = cards.find(item => item.dataset.design === key);
+    if (!concept || !card) return;
+    lastFocused = document.activeElement;
+    modalTitle.textContent = concept.title;
+    modalDesc.textContent = concept.desc;
+    modalPreview.replaceChildren();
+    const preview = card.querySelector(".website-preview").cloneNode(true);
+    preview.classList.add("modal-preview-copy");
+    modalPreview.appendChild(preview);
+    modalCta.href = "#contact";
+    modalCta.dataset.interest = key === "dashboard" ? "Custom Web Application / Business Software" :
+      key === "cafe" ? "Website Development" :
+      key === "shop" ? "E-commerce Website" :
+      key === "service" ? "Website Development" : "Website Development";
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    modal.querySelector(".design-modal-close").focus();
+  }
+  function closePreview() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll("[data-open-design]").forEach(button => {
+    button.addEventListener("click", () => openPreview(button.dataset.openDesign));
+  });
+  modal.querySelectorAll("[data-close-design]").forEach(button => button.addEventListener("click", closePreview));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && modal.classList.contains("open")) closePreview();
+    if (event.key === "Tab" && modal.classList.contains("open")) {
+      const focusable = [...modal.querySelectorAll('button:not([disabled]),a[href]')].filter(el => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+  modalCta.addEventListener("click", () => closePreview());
+})();
+
+</script>
+<script>
+
+/* Interactive examples: connect SafeTap QR/NFC products to a customer’s existing website or chosen online page. */
+(function(){
+  const examples = {
+    cafe: {
+      kicker:'EXAMPLE 01 / HOSPITALITY',
+      title:'A scan takes guests straight to your menu.',
+      desc:'Already have a menu page on your website? We link a SafeTap QR code on each table directly to that page, so guests can open your existing menu instantly—no new website needed.',
+      tag:'DIGITAL MENU', headline:'A menu worth<br>coming back for.', cta:'View menu ↗',
+      bg:'radial-gradient(circle at 40% 45%,#e7c878 0 10%,transparent 11%),radial-gradient(circle at 58% 54%,#a64e2e 0 18%,transparent 19%),radial-gradient(ellipse at center,#e7dcc1 0 43%,#9caa7f 44% 48%,transparent 49%),linear-gradient(140deg,#4d6542,#bd9869)'
+    },
+    reviews: {
+      kicker:'EXAMPLE 02 / CUSTOMER REVIEWS',
+      title:'One tap makes leaving feedback easier.',
+      desc:'Already have a website or review page? We program a SafeTap NFC stand or QR code to open your chosen link, making it easy for customers to leave feedback.',
+      tag:'TAP TO REVIEW', headline:'Enjoyed your<br>visit today?', cta:'Leave a review ↗',
+      bg:'radial-gradient(circle at 50% 45%,#e8c96d 0 8%,transparent 9%),radial-gradient(circle at 35% 60%,#e8c96d 0 8%,transparent 9%),radial-gradient(circle at 65% 60%,#e8c96d 0 8%,transparent 9%),linear-gradient(135deg,#34472b,#a0b18a)'
+    },
+    retail: {
+      kicker:'EXAMPLE 03 / RETAIL & PRODUCTS',
+      title:'Give every product a useful digital page.',
+      desc:'We link a SafeTap QR code on your packaging or product label to the product page already on your website, so customers can see details, instructions, and other information.',
+      tag:'PRODUCT DETAILS', headline:'Know more.<br>Choose better.', cta:'Explore product ↗',
+      bg:'linear-gradient(135deg,#e6d3b2,#ad8157 45%,#594b3a 46%,#d9c6a3)'
+    },
+    booking: {
+      kicker:'EXAMPLE 04 / APPOINTMENTS',
+      title:'Turn a tap into your next booking.',
+      desc:'If your website already has a booking form or service page, we link a SafeTap NFC card or QR code to it so customers can book directly from their phone.',
+      tag:'BOOK AN APPOINTMENT', headline:'Your next<br>visit starts here.', cta:'Book a slot ↗',
+      bg:'radial-gradient(ellipse at 50% 50%,#d9b5a0 0 22%,transparent 23%),linear-gradient(135deg,#b4a5cc,#e7dce9 45%,#697c68)'
+    }
+  };
+  const buttons = [...document.querySelectorAll('[data-integration]')];
+  const kicker = document.getElementById('integrationResultKicker');
+  const title = document.getElementById('integrationResultTitle');
+  const desc = document.getElementById('integrationResultDesc');
+  const screen = document.getElementById('integrationResultScreen');
+  if (!buttons.length || !kicker || !title || !desc || !screen) return;
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const item = examples[button.dataset.integration];
+    if (!item) return;
+    buttons.forEach(b => {const active = b === button; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active));});
+    kicker.textContent = item.kicker;
+    title.textContent = item.title;
+    desc.textContent = item.desc;
+    screen.querySelector('.integration-result-tag').textContent = item.tag;
+    screen.querySelector('strong').innerHTML = item.headline;
+    screen.querySelector('.integration-result-cta').textContent = item.cta;
+    screen.querySelector('.integration-result-food').style.background = item.bg;
+  }));
+})();
+
 </script>
 </body>
 </html>
