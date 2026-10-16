@@ -696,6 +696,15 @@ section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
 .form-status.ok{background:rgba(200,255,62,.1);border:1px solid rgba(200,255,62,.4)}
 .form-status.warn{background:rgba(255,200,80,.08);border:1px solid rgba(255,200,80,.4)}
 .form-status.bad{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.4)}
+.form-status.ok{display:flex;align-items:center;gap:.8rem;animation:success-pop .45s var(--ease) both}
+.form-status.ok::before{content:"✓";flex:none;width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;background:var(--lime);color:var(--ink);font-weight:900;font-size:1.15rem;box-shadow:0 0 0 0 rgba(200,255,62,.45);animation:success-pulse 1.1s ease-out 2}
+@keyframes success-pop{0%{opacity:0;transform:translateY(8px) scale(.98)}70%{opacity:1;transform:translateY(-2px) scale(1.01)}100%{opacity:1;transform:none}}
+@keyframes success-pulse{0%{box-shadow:0 0 0 0 rgba(200,255,62,.45);transform:scale(.7)}65%{box-shadow:0 0 0 9px rgba(200,255,62,0);transform:scale(1.08)}100%{box-shadow:0 0 0 0 rgba(200,255,62,0);transform:scale(1)}}
+#submitBtn.is-sending{opacity:.8;cursor:wait}
+#submitBtn.is-sent{background:#c8ff3e;box-shadow:0 0 0 4px rgba(200,255,62,.15)}
+.submit-spinner{width:1rem;height:1rem;border:2px solid rgba(10,18,0,.25);border-top-color:var(--ink);border-radius:50%;animation:submit-spin .7s linear infinite}
+.sent-check{display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:var(--ink);color:var(--lime);font-size:.9rem;animation:success-pop .3s ease both}
+@keyframes submit-spin{to{transform:rotate(360deg)}}
 @media (max-width:980px){.contact{grid-template-columns:1fr;gap:var(--s6)}}
 @media (max-width:560px){.form{grid-template-columns:1fr;padding:var(--s5)}}
 
@@ -1824,10 +1833,15 @@ body.modal-open{overflow:hidden}
         <input id="f-biz" name="business" type="text" autocomplete="organization" required>
         <span class="err" id="e-biz"></span>
       </div>
-      <div class="field full">
-        <label for="f-contact">Email or phone <span class="req" aria-hidden="true">*</span></label>
-        <input id="f-contact" name="contact" type="text" autocomplete="email" required>
+      <div class="field">
+        <label for="f-contact">Email address</label>
+        <input id="f-contact" name="email" type="email" autocomplete="email" placeholder="you@example.com">
         <span class="err" id="e-contact"></span>
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. +91 98765 43210" required>
+        <span class="err" id="e-phone"></span>
       </div>
       <div class="field">
         <label for="f-type">Business type <span class="req" aria-hidden="true">*</span></label>
@@ -2272,15 +2286,17 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
   const rules = {
     name:     { el: "#f-name",     err: "#e-name",     msg: "Please enter your name." },
     business: { el: "#f-biz",      err: "#e-biz",      msg: "Please enter your business name." },
-    contact:  { el: "#f-contact",  err: "#e-contact",  msg: "Enter a valid email address or phone number.",
-                test: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || /^\+?[\d\s()-]{7,}$/.test(v) },
-    type:     { el: "#f-type",     err: "#e-type",     msg: "Please choose your business type." },
+    contact:  { el: "#f-contact",  err: "#e-contact",  msg: "Enter a valid email address.",
+                optional: true, test: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) },
+    phone:    { el: "#f-phone",    err: "#e-phone",     msg: "Enter a valid phone number.",
+                test: v => /^\+?[\d\s().-]{7,20}$/.test(v) && v.replace(/\D/g, "").length >= 7 },
+    type:     { el: "#f-type",     err: "#e-type",      msg: "Please choose your business type." },
     interest: { el: "#f-interest", err: "#e-interest", msg: "Please choose what you're interested in." }
   };
 
   function check(key){
     const r = rules[key], el = $(r.el), v = el.value.trim();
-    const ok = v !== "" && (!r.test || r.test(v));
+    const ok = (r.optional && v === "") || (v !== "" && (!r.test || r.test(v)));
     el.setAttribute("aria-invalid", String(!ok));
     el.setAttribute("aria-describedby", r.err.slice(1));
     $(r.err).textContent = ok ? "" : r.msg;
@@ -2295,6 +2311,7 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
   function show(type, text){
     status.className = "form-status show " + type;
     status.textContent = text;
+    status.setAttribute("role", type === "bad" ? "alert" : "status");
   }
 
   form.addEventListener("submit", async e => {
@@ -2310,8 +2327,17 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
     const data = Object.fromEntries(new FormData(form).entries());
     if (data._gotcha) return; // spam trap
 
+    // FormSubmit blocks AJAX requests from pages opened directly as file://.
+    // Run this page through localhost or deploy it to a web host before testing.
+    if (window.location.protocol === "file:") {
+      show("bad", "This page is opened directly from your computer, so the email service blocks the request. Run the site through localhost or deploy it to your website, then submit again.");
+      return;
+    }
 
     submit.disabled = true;
+    const originalButtonHTML = submit.innerHTML;
+    submit.classList.add("is-sending");
+    submit.innerHTML = '<span class="submit-spinner" aria-hidden="true"></span> Sending enquiry…';
     try{
       const payload = {
         ...data,
@@ -2319,21 +2345,45 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
         _template: "table",
         _captcha: "true"
       };
+      // Let SafeTap reply directly to the visitor when an email is provided.
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || "")) {
+        payload._replyto = data.email;
+      }
       const res = await fetch(SAFETAP_CONFIG.formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(payload)
       });
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok || result.success === "false" || result.success === false) {
-        throw new Error(result.message || ("HTTP " + res.status));
+      const raw = await res.text();
+      let result = {};
+      try { result = raw ? JSON.parse(raw) : {}; } catch (_) {}
+      if (!res.ok || result.success === "false" || result.success === false || !result.success) {
+        const reason = result.message || (res.status ? `HTTP ${res.status}` : "The email service did not confirm delivery");
+        throw new Error(reason);
       }
       form.reset();
-      show("ok", "Thank you! Your enquiry has been submitted to SafeTap. We'll be in touch soon.");
+      show("ok", "Enquiry sent successfully! Thank you — SafeTap has received your request. We'll be in touch soon.");
+      submit.classList.remove("is-sending");
+      submit.classList.add("is-sent");
+      submit.innerHTML = '<span class="sent-check" aria-hidden="true">✓</span> Enquiry Sent';
+      window.setTimeout(() => {
+        submit.classList.remove("is-sent");
+        submit.innerHTML = originalButtonHTML;
+      }, 4500);
     }catch(err){
-      show("bad", "Your enquiry could not be sent. Please try again, or email safetap2026@gmail.com. If this is the first submission, check the SafeTap inbox for FormSubmit's activation email.");
+      console.error("SafeTap enquiry submission failed:", err);
+      const reason = (err && err.message) ? err.message : "Network error";
+      if (reason.toLowerCase().includes("activate") || reason.toLowerCase().includes("confirm")) {
+        show("bad", "SafeTap's inbox may need activation. Check safetap2026@gmail.com for FormSubmit's activation email, then try again.");
+      } else if (reason.toLowerCase().includes("web server") || reason.toLowerCase().includes("html files")) {
+        show("bad", "The email service will not accept this page when opened as a local HTML file. Run it through localhost or deploy the website, then try again.");
+      } else {
+        show("bad", `Your enquiry could not be sent (${reason}). Please try again after the site is running on a web server. If the problem continues, check FormSubmit activation for safetap2026@gmail.com.`);
+      }
     }finally{
       submit.disabled = false;
+      submit.classList.remove("is-sending");
+      if (!submit.classList.contains("is-sent")) submit.innerHTML = originalButtonHTML;
     }
   });
 })();
