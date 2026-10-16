@@ -7,7 +7,7 @@
 <meta name="description" content="SafeTap builds modern websites, custom web applications, business software, and provides ongoing website maintenance, technical support, and QR/NFC digital solutions.">
 <meta name="theme-color" content="#0c0d0e">
 <meta name="color-scheme" content="dark">
-<!-- After deploying, set your real domain here and in og:url / og:image -->
+<!-- After deploying, set your real domain here and in og:url / og:image 
 <link rel="canonical" href="https://your-domain.com/">
 
 <!-- Open Graph / social -->
@@ -2312,19 +2312,31 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
     if (data._gotcha) return; // spam trap
 
     if (!SAFETAP_CONFIG.formEndpoint){
-      // No backend connected: nothing is sent. Offer a pre-filled email instead.
+      // No backend is configured, so open the visitor's default email app
+      // with the enquiry addressed to SafeTap and the form details pre-filled.
       const body = [
-        `Name: ${data.name}`, `Business: ${data.business}`, `Contact: ${data.contact}`,
-        `Business type: ${data.business_type}`, `Interested in: ${data.interested_in}`, "",
-        data.message || ""
-      ].join("\n");
+        `Name: ${data.name}`,
+        `Business: ${data.business}`,
+        `Contact: ${data.contact}`,
+        `Business type: ${data.business_type}`,
+        `Interested in: ${data.interested_in}`,
+        "",
+        "Message:",
+        data.message || "(No additional message provided)"
+      ].join("\\n");
       const href = `mailto:${SAFETAP_CONFIG.email}?subject=${encodeURIComponent("SafeTap enquiry: " + data.interested_in)}&body=${encodeURIComponent(body)}`;
+
       status.className = "form-status show warn";
-      status.textContent = "Your details look good, but this form isn't connected to an email service yet, so nothing has been sent. ";
+      status.textContent = "Opening your email app with your enquiry prepared. Please review it and press Send to email SafeTap. If it doesn't open, ";
+
       const a = document.createElement("a");
-      a.href = href; a.textContent = "Open a ready-to-send email instead";
+      a.href = href;
+      a.textContent = "click here to open the email";
       a.style.cssText = "color:var(--lime);font-weight:600;text-decoration:underline";
       status.append(a);
+
+      // Trigger the default mail app. The visitor must press Send themselves.
+      window.location.href = href;
       return;
     }
 
