@@ -1940,11 +1940,10 @@ const SAFETAP_CONFIG = {
   whatsappNumber: "919789971911",
   whatsappMessage: "Hi SafeTap, I would like to discuss a website, software, or digital support project.",
 
-  // Form endpoint. Examples:
-  //   Formspree: "https://formspree.io/f/yourFormId"
-  //   Custom API route on Vercel: "/api/enquiry"
-  // Leave empty and the form only validates (nothing is sent).
-  formEndpoint: ""
+  // FormSubmit sends enquiries directly to the SafeTap inbox without
+  // opening the visitor's email application. Activate the inbox using
+  // the confirmation email FormSubmit sends after the first submission.
+  formEndpoint: "https://formsubmit.co/ajax/safetap2026@gmail.com"
 };
 
 document.documentElement.classList.add("js");
@@ -2311,47 +2310,28 @@ $$("[data-interest]").forEach(a => a.addEventListener("click", () => {
     const data = Object.fromEntries(new FormData(form).entries());
     if (data._gotcha) return; // spam trap
 
-    if (!SAFETAP_CONFIG.formEndpoint){
-      // No backend is configured, so open the visitor's default email app
-      // with the enquiry addressed to SafeTap and the form details pre-filled.
-      const body = [
-        `Name: ${data.name}`,
-        `Business: ${data.business}`,
-        `Contact: ${data.contact}`,
-        `Business type: ${data.business_type}`,
-        `Interested in: ${data.interested_in}`,
-        "",
-        "Message:",
-        data.message || "(No additional message provided)"
-      ].join("\\n");
-      const href = `mailto:${SAFETAP_CONFIG.email}?subject=${encodeURIComponent("SafeTap enquiry: " + data.interested_in)}&body=${encodeURIComponent(body)}`;
-
-      status.className = "form-status show warn";
-      status.textContent = "Opening your email app with your enquiry prepared. Please review it and press Send to email SafeTap. If it doesn't open, ";
-
-      const a = document.createElement("a");
-      a.href = href;
-      a.textContent = "click here to open the email";
-      a.style.cssText = "color:var(--lime);font-weight:600;text-decoration:underline";
-      status.append(a);
-
-      // Trigger the default mail app. The visitor must press Send themselves.
-      window.location.href = href;
-      return;
-    }
 
     submit.disabled = true;
     try{
+      const payload = {
+        ...data,
+        _subject: `SafeTap enquiry: ${data.interested_in}`,
+        _template: "table",
+        _captcha: "true"
+      };
       const res = await fetch(SAFETAP_CONFIG.formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
       });
-      if (!res.ok) throw new Error("HTTP " + res.status);
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.success === "false" || result.success === false) {
+        throw new Error(result.message || ("HTTP " + res.status));
+      }
       form.reset();
-      show("ok", "Thank you! Your enquiry has been sent. We'll be in touch soon.");
+      show("ok", "Thank you! Your enquiry has been submitted to SafeTap. We'll be in touch soon.");
     }catch(err){
-      show("bad", "Something went wrong and your enquiry wasn't sent. Please try again in a moment.");
+      show("bad", "Your enquiry could not be sent. Please try again, or email safetap2026@gmail.com. If this is the first submission, check the SafeTap inbox for FormSubmit's activation email.");
     }finally{
       submit.disabled = false;
     }
